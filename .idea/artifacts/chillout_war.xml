@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="chillout:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>chillout</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="chillout-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="chillout:war exploded" />
+    </root>
+  </artifact>
+</component>
