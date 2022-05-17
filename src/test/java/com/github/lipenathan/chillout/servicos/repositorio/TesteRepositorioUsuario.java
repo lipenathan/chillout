@@ -1,18 +1,15 @@
 package com.github.lipenathan.chillout.servicos.repositorio;
 
-import com.github.lipenathan.chillout.dominio.Endereco;
-import com.github.lipenathan.chillout.dominio.Funcionario;
-import com.github.lipenathan.chillout.dominio.HistoricoSaude;
-import com.github.lipenathan.chillout.dominio.Psicologo;
+import com.github.lipenathan.chillout.negocio.dominio.*;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static com.github.lipenathan.chillout.dominio.Papel.FUNCONARIO;
+import static com.github.lipenathan.chillout.negocio.dominio.Papel.FUNCONARIO;
 
 public class TesteRepositorioUsuario {
 
-    private RepositorioUsuario repositorioUsuario = new RepositorioUsuario();
+    private Repositorio<Usuario> repositorioUsuario = new Repositorio<>(Usuario.class);
 
     @Test
     public void testeInserirPsicologo() {

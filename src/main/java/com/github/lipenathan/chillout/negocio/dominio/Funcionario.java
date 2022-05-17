@@ -1,5 +1,6 @@
-package com.github.lipenathan.chillout.dominio;
+package com.github.lipenathan.chillout.negocio.dominio;
 
+import com.github.lipenathan.chillout.negocio.exception.NegocioException;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -15,6 +16,14 @@ public class Funcionario extends Usuario {
     @OneToOne(cascade = PERSIST)
     @JoinColumn(name = "id_historico_saude")
     private HistoricoSaude historicoSaude;
+
+    @Override
+    public void validar() throws NegocioException {
+        validarUsuario();
+        if (dataContratacao == null) throw NegocioException.DATA_CONTRATACAO_INVALIDA;
+        if (cargo == null || cargo.isEmpty()) throw NegocioException.CARGO_INVALIDO;
+        if (setor == null || setor.isEmpty()) throw NegocioException.SETOR_INVALIDO;
+    }
 
     public LocalDate getDataContratacao() {
         return dataContratacao;

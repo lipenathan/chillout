@@ -1,4 +1,4 @@
-package com.github.lipenathan.chillout.dominio;
+package com.github.lipenathan.chillout.negocio.dominio;
 
 import jakarta.persistence.*;
 

@@ -4,11 +4,11 @@
              version="2.0">
     <persistence-unit name="chillout_teste" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.github.lipenathan.chillout.dominio.Endereco</class>
-        <class>com.github.lipenathan.chillout.dominio.Psicologo</class>
-        <class>com.github.lipenathan.chillout.dominio.Usuario</class>
-        <class>com.github.lipenathan.chillout.dominio.HistoricoSaude</class>
-        <class>com.github.lipenathan.chillout.dominio.Funcionario</class>
+        <class>com.github.lipenathan.chillout.negocio.dominio.Endereco</class>
+        <class>com.github.lipenathan.chillout.negocio.dominio.Psicologo</class>
+        <class>com.github.lipenathan.chillout.negocio.dominio.Usuario</class>
+        <class>com.github.lipenathan.chillout.negocio.dominio.HistoricoSaude</class>
+        <class>com.github.lipenathan.chillout.negocio.dominio.Funcionario</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

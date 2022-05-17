@@ -1,0 +1,35 @@
+/* Importações */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap;');
+
+/* Tags Personalizadas */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+    background: #5EFC8D;
+}
+
+/* Classes Personalizadas */
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    color: black;
+}
+
+/* Componentes personalizados */
+#img_logo {
+    width: 120px;
+    height: 30px;
+}
+
+#cabecalho {
+    font-family: Inter, Arial, sans-serif;
+    color: black;
+    background: #D8DDEF;
+}
+
+#bt_logar {
+    background: #4D7C8A;
+    color: white;
+}

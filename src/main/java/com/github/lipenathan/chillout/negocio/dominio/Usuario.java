@@ -1,11 +1,12 @@
-package com.github.lipenathan.chillout.dominio;
+package com.github.lipenathan.chillout.negocio.dominio;
 
+import com.github.lipenathan.chillout.negocio.exception.NegocioException;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.temporal.*;
-import java.time.temporal.Temporal;
 
+import static com.github.lipenathan.flynn.validador.Validador.apenasAlfabetico;
+import static com.github.lipenathan.flynn.validador.Validador.validarCpf;
 import static jakarta.persistence.CascadeType.PERSIST;
 
 @Entity
@@ -32,6 +33,28 @@ public abstract class Usuario {
         int nascimento = dataNascimento.getYear();
         int hoje = LocalDate.now().getYear();
         this.idade = hoje - nascimento;
+    }
+
+    public abstract void validar() throws NegocioException;
+
+    protected void validarUsuario() throws NegocioException {
+        if (nome == null || nome.isEmpty()) throw NegocioException.NOME_INVALIDO;
+        if (dataNascimento == null) throw NegocioException.DATA_NASCIMENTO_INVALIDA;
+        if (enderecoUsuario == null) throw NegocioException.ENDERECO_INVALIDO;
+        validarcpf();
+        validarSenha();
+    }
+
+    /** Verifica se o CPF é válido **/
+    private void validarcpf() throws NegocioException {
+        if (cpf == null || cpf.isEmpty()) throw NegocioException.DOCUMENTO_INVALIDO;
+        if (!validarCpf(cpf)) throw NegocioException.DOCUMENTO_INVALIDO;
+    }
+
+    /** Valida a regra de senha proposta pela aplicação **/
+    private void validarSenha() throws NegocioException {
+        if (senha == null || senha.isEmpty() || senha.length() < 6) throw NegocioException.SENHA_INVALIDA;
+        if (apenasAlfabetico(senha)) throw NegocioException.SENHA_INVALIDA_CARACTERES;
     }
 
     public long getId() {

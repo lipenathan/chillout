@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="flynn">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../workspace/util/flynn/flynn.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
