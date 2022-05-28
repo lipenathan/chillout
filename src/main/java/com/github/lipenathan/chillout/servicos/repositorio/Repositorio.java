@@ -1,9 +1,9 @@
 package com.github.lipenathan.chillout.servicos.repositorio;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.transaction.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.transaction.Transactional;
 import java.util.List;
 
 public class Repositorio <T>{

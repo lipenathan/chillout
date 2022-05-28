@@ -1,32 +1,36 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
 import com.github.lipenathan.chillout.negocio.exception.NegocioException;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import static com.github.lipenathan.flynn.validador.Validador.apenasAlfabetico;
 import static com.github.lipenathan.flynn.validador.Validador.validarCpf;
-import static jakarta.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.PERSIST;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario {
     @Id
-    @Column(name = "id_usuario")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "USUARIO_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
     protected String nome;
     protected String sobrenome;
-    protected LocalDate dataNascimento;
+    @Column(name = "DATA_NASCIMENTO")
+    protected Date dataNascimento;
     protected String cpf;
+    protected String email;
     @Transient
     protected int idade = 0;
     protected String senha;
     @Enumerated(EnumType.STRING)
+    @Column(name = "TIPO_USUARIO")
     protected Papel papel;
     @OneToOne(cascade = PERSIST)
-    @JoinColumn(name = "id_endereco")
+    @JoinColumn(name = "ENDERECO_ID_USUARIO", referencedColumnName = "ENDERECO_ID")
     protected Endereco enderecoUsuario;
 
     public void calcularIdade() {
@@ -35,12 +39,15 @@ public abstract class Usuario {
         this.idade = hoje - nascimento;
     }
 
-    public abstract void validar() throws NegocioException;
+    public void validar() throws NegocioException {
+        validarUsuario();
+    }
 
     protected void validarUsuario() throws NegocioException {
         if (nome == null || nome.isEmpty()) throw NegocioException.NOME_INVALIDO;
         if (dataNascimento == null) throw NegocioException.DATA_NASCIMENTO_INVALIDA;
-        if (enderecoUsuario == null) throw NegocioException.ENDERECO_INVALIDO;
+        if (papel == null) throw NegocioException.PAPEL_INVALIDO;
+        enderecoUsuario.validar();
         validarcpf();
         validarSenha();
     }
@@ -77,11 +84,23 @@ public abstract class Usuario {
         this.sobrenome = sobrenome;
     }
 
-    public LocalDate getDataNascimento() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

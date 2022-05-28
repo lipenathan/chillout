@@ -1,15 +1,16 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.*;
+
+import java.io.Serializable;
 
 @Entity
-public class RespostaFuncionario {
+public class RespostaFuncionario implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @ManyToOne
+    @JoinColumn(name = "id_resposta_pronta")
     private RespostaPronta resposta;
     private String respostaSubjetiva;
 

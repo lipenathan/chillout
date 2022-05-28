@@ -1,16 +1,16 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class RespostaPronta {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "resposta_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "texto_resposta")
     private String textoResposta;
+    @Column(name = "numero_resposta")
     private int notaResposta;
 
     public long getId() {

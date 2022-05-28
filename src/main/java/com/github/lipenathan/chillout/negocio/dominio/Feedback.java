@@ -1,19 +1,18 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import javax.persistence.Entity;
-import java.time.LocalDateTime;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Feedback {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "feedback_id")
     private long id;
+    @Column(name = "texto_feedback")
     private String feedback;
-    private LocalDateTime dataFeedback;
+    @Column(name = "data_feedback")
+    private Date dataFeedback;
 
     public long getId() {
         return id;
@@ -27,11 +26,11 @@ public class Feedback {
         this.feedback = feedback;
     }
 
-    public LocalDateTime getDataFeedback() {
+    public Date getDataFeedback() {
         return dataFeedback;
     }
 
-    public void setDataFeedback(LocalDateTime dataFeedback) {
+    public void setDataFeedback(Date dataFeedback) {
         this.dataFeedback = dataFeedback;
     }
 }

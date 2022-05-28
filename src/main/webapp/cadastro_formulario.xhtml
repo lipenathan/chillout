@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="resources/css/style.css"/>
+</h:head>
+
+<h:body>
+    <!-- inicio cabecalho -->
+    <div id="cabecalho" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li>
+                <a href="cadastro_empresa.xhtml" class="nav-link px-2 text-secondary">
+                    <img id="img_logo" src="resources/imagens/chillout_logo.png" alt="Chillout"/>
+                </a>
+            </li>
+            <li><a href="cadastro_empresa.xhtml" class="nav-link px-2 text-secondary">Home</a></li>
+            <li><a href="temp.xhtml" class="nav-link px-2 text-white">Sobre</a></li>
+            <li><a href="temp.xhtml" class="nav-link px-2 text-white">Dúvidas</a></li>
+            <li><a href="temp.xhtml" class="nav-link px-2 text-white">Contato</a></li>
+        </ul>
+        <div class="text-end">
+            <button id="bt_logar" type="button" class="btn btn-outline-light me-2">Logar</button>
+        </div>
+    </div>
+    <!-- fim cabecalho -->
+    <h:messages/>
+    <div class="titulo_pagina">
+        <h1>Cadastro Formulário</h1>
+    </div>
+    <br/>
+    <br/>
+    <div class="container">
+        <h4 class="mb-3">Perguntas</h4>
+        <h:form>
+            <h:commandButton image="resources/imagens/plus.png" style="width: 30px"/>
+            <div class="row g-5" style="justify-content: center; align-content: center">
+                <div class="cl-md-8">
+                    <label for="pergunta" class="form-label">Pergunta</label>
+                    <h:inputText id="pergunta" value=""/><br/>
+                    <label for="r1" class="form-label">Resposta 1 para Pergunta</label>
+                    <h:inputText id="r1" value=""/><br/>
+                    <label for="r2" class="form-label">Resposta 2 para Pergunta</label>
+                    <h:inputText id="r2" value=""/><br/>
+                    <label for="r3" class="form-label">Resposta 3 para Pergunta</label>
+                    <h:inputText id="r3" value=""/><br/>
+                    <label for="r4" class="form-label">Resposta 4 para Pergunta</label>
+                    <h:inputText id="r4" value=""/><br/>
+                    <label for="r5" class="form-label">Resposta 5 para Pergunta</label>
+                    <h:inputText id="r5" value=""/><br/>
+                </div>
+            </div>
+            <div class="row g-5">
+                <div class="col-md-3">
+                    <h:commandButton value="Cadastrar" actionListener="#{cadastroPsicologoController.cadastrar}"/>
+                </div>
+            </div>
+        </h:form>
+    </div>
+    <!--suppress CheckEmptyScriptTag -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"
+            type="javascript"/>
+</h:body>
+</html>

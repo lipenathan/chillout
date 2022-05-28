@@ -1,16 +1,20 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 public class HistoricoSaude {
     @Id
-    @Column(name = "id_historico_saude")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "HISTORICO_SAUDE_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "HISTORICO_DEPRESSAO_FAMILIAR")
     private boolean historicoDepressaoFamilia;
+    @Column(name = "SURTO_ULTIMO_ANO")
     private boolean surtoUltimoAno;
+    @Column(name = "HISTORICO_ANSIEDADE")
     private boolean historicoAnsiedade;
+    @Column(name = "DESCRICAO_HISTORICO_SAUDE")
     private String descricaoHistorico;
 
     public long getId() {

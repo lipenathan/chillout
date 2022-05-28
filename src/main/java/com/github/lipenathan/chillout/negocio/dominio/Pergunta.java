@@ -1,16 +1,19 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 public class Pergunta {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PERGUNTA_ID")
     private long id;
     private String textoPergunta;
     private boolean subjetiva;
+    @OneToOne
     private RespostaFuncionario respostaFuncionario;
     @ManyToOne
+    @JoinColumn(name = "FORMULARIO_ID")
     private Formulario formulario;
 
     public long getId() {

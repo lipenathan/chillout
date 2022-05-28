@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="resources/css/style.css"/>
+</h:head>
+
+<h:body>
+    <!-- inicio cabecalho -->
+    <div id="cabecalho" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li>
+                <a href="cadastro_empresa.xhtml" class="nav-link px-2 text-secondary">
+                    <img id="img_logo" src="resources/imagens/chillout_logo.png" alt="Chillout"/>
+                </a>
+            </li>
+            <li><a href="cadastro_empresa.xhtml" class="nav-link px-2 text-secondary">Home</a></li>
+            <li><a href="temp.xhtml" class="nav-link px-2 text-white">Sobre</a></li>
+            <li><a href="temp.xhtml" class="nav-link px-2 text-white">Dúvidas</a></li>
+            <li><a href="temp.xhtml" class="nav-link px-2 text-white">Contato</a></li>
+        </ul>
+        <div class="text-end">
+            <button id="bt_logar" type="button" class="btn btn-outline-light me-2">Logar</button>
+        </div>
+    </div>
+    <!-- fim cabecalho -->
+    <h:messages/>
+    <div class="titulo_pagina">
+        <h1>Cadastro de Funcionário</h1>
+    </div>
+    <br/>
+    <br/>
+    <div>
+        <div class="container">
+            <h4 class="mb-3">Dados</h4>
+            <h:form>
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <label for="nomefunc" class="form-label">Nome</label>
+                        <h:inputText value="#{cadastroFuncionarioController.funcionario.nome}" styleClass="form-control"
+                                     id="nomefunc"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="sobrenomefunc" class="form-label">Sobrenome</label>
+                        <h:inputText value="#{cadastroFuncionarioController.funcionario.sobrenome}" styleClass="form-control"
+                                     id="sobrenomefunc"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cpffunc" class="form-label">CPF</label>
+                        <h:inputText style="width: 60%" value="#{cadastroFuncionarioController.funcionario.cpf}"
+                                     styleClass="form-control" id="cpffunc">
+                        </h:inputText>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <label for="datanascfunc" class="form-label">Data de Nascimento</label>
+                        <h:inputText value="#{cadastroFuncionarioController.funcionario.dataNascimento}"
+                                     styleClass="form-control"
+                                     id="datanascfunc">
+                            <f:convertDateTime pattern = "dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
+                        </h:inputText>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="emailfunc" class="form-label">E-mail</label>
+                        <h:inputText value="#{cadastroFuncionarioController.funcionario.email}" styleClass="form-control"
+                                     id="emailfunc"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="ruafunc" class="form-label">Rua</label>
+                        <h:inputText value="#{cadastroFuncionarioController.endereco.rua}" styleClass="form-control"
+                                     id="ruafunc"/>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <label for="bairrofunc" class="form-label">Bairro</label>
+                        <h:inputText value="#{cadastroFuncionarioController.endereco.bairro}"
+                                     styleClass="form-control" id="bairrofunc"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="numeroEnderecofunc" class="form-label">Nº Endereço</label>
+                        <h:inputText value="#{cadastroFuncionarioController.endereco.numeroEndereco}"
+                                     styleClass="form-control" id="numeroEnderecofunc">
+                            <f:passThroughAttribute name="type" value="number"/>
+                        </h:inputText>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cidadefunc" class="form-label">Cidade</label>
+                        <h:inputText value="#{cadastroFuncionarioController.endereco.cidade}" styleClass="form-control"
+                                     id="cidadefunc">
+                        </h:inputText>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <label for="uffunc" class="form-label">UF</label>
+                        <h:inputText value="#{cadastroFuncionarioController.endereco.estado}" styleClass="form-control"
+                                     id="uffunc" maxlength="2">
+                        </h:inputText>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="pais" class="form-label">País</label>
+                        <h:inputText value="#{cadastroFuncionarioController.endereco.pais}" styleClass="form-control"
+                                     id="pais"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="complemento" class="form-label">Complemento</label>
+                        <h:inputText value="#{cadastroFuncionarioController.endereco.complemento}" styleClass="form-control"
+                                     id="complemento"/>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <label for="cargo" class="form-label">Cargo</label>
+                        <h:inputText value="#{cadastroFuncionarioController.funcionario.cargo}"
+                                     styleClass="form-control"
+                                     id="cargo"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="setor" class="form-label">Setor</label>
+                        <h:inputText value="#{cadastroFuncionarioController.funcionario.setor}"
+                                     styleClass="form-control"
+                                     id="setor"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="datacontr" class="form-label">Data Contratação</label>
+                        <h:inputText value="#{cadastroFuncionarioController.funcionario.dataContratacao}"
+                                     styleClass="form-control"
+                                     id="datacontr">
+                            <f:convertDateTime pattern = "dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
+                        </h:inputText>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <label for="senha1func" class="form-label">Senha</label>
+                        <h:inputSecret value="#{cadastroFuncionarioController.senha1}" styleClass="form-control"
+                                       id="senha1func">
+                            <f:passThroughAttribute name="placeholder" value="Digite uma senha"/>
+                        </h:inputSecret>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="senha2func" class="form-label">Confirmação de Senha</label>
+                        <h:inputSecret value="#{cadastroFuncionarioController.senha2}" styleClass="form-control"
+                                       id="senha2func">
+                            <f:passThroughAttribute name="placeholder" value="Digite a senha novamente"/>
+                        </h:inputSecret>
+                    </div>
+                </div>
+                <div class="row g-5">
+                    <div class="col-md-3">
+                        <h:commandButton value="Cadastrar" actionListener="#{cadastroFuncionarioController.cadastrar}"/>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </div>
+    <!--suppress CheckEmptyScriptTag -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"
+            type="javascript"/>
+</h:body>
+</html>

@@ -1,18 +1,20 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
 
-import jakarta.persistence.*;
+import com.github.lipenathan.chillout.negocio.exception.NegocioException;
+import javax.persistence.*;
 
 import java.io.Serializable;
 
 @Entity
 public class Endereco implements Serializable {
     @Id
-    @Column(name = "id_endereco")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ENDERECO_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String rua;
     private String bairro;
+    @Column(name = "NUMERO")
     private long numeroEndereco;
     private String cidade;
     private String estado;
@@ -31,6 +33,15 @@ public class Endereco implements Serializable {
                 ", pais='" + pais + '\'' +
                 ", complemento='" + complemento + '\'' +
                 '}';
+    }
+
+    public void validar() throws NegocioException {
+        if (rua == null || rua.isEmpty()) throw NegocioException.RUA_ENDERECO_INVALIDA;
+        if (bairro == null || bairro.isEmpty()) throw NegocioException.BAIRRO_ENDERECO_INVALIDO;
+        if (numeroEndereco <= 0) throw NegocioException.NUMERO_ENDERECO_INVALIDO;
+        if (cidade == null || cidade.isEmpty()) throw NegocioException.CIDADE_ENDERECO_INVALIDA;
+        if (estado == null || estado.isEmpty()) throw NegocioException.ESTADO_ENDERECO_INVALIDO;
+        if (pais == null || pais.isEmpty()) throw NegocioException.PAIS_ENDERECO_INVALIDO;
     }
 
     public long getId() {

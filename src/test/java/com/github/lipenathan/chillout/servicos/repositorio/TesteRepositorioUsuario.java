@@ -3,6 +3,7 @@ package com.github.lipenathan.chillout.servicos.repositorio;
 import com.github.lipenathan.chillout.negocio.dominio.*;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import static com.github.lipenathan.chillout.negocio.dominio.Papel.FUNCONARIO;
@@ -17,7 +18,7 @@ public class TesteRepositorioUsuario {
         psicologo.setNome("Dra. Alice");
         psicologo.setCrm("123456");
         psicologo.setCpf("11122233344");
-        psicologo.setDataNascimento(LocalDate.of(1996, 12, 28));
+        psicologo.setDataNascimento(Date.valueOf(LocalDate.of(1996, 12, 28)));
         Endereco endereco = new Endereco();
         endereco.setRua("Rua do psicologo");
         endereco.setNumeroEndereco(120);
@@ -37,8 +38,8 @@ public class TesteRepositorioUsuario {
         funcionario.setCargo("Gerente");
         funcionario.setPapel(FUNCONARIO);
         funcionario.setCpf("00011122255");
-        funcionario.setDataNascimento(LocalDate.of(1996, 12, 28));
-        funcionario.setDataContratacao(LocalDate.of(2022, 01, 01));
+        funcionario.setDataNascimento(Date.valueOf(LocalDate.of(1996, 12, 28)));
+        funcionario.setDataContratacao(Date.valueOf(LocalDate.of(2022, 01, 02)));
         Endereco endereco = new Endereco();
         endereco.setRua("rua do funcionario teste");
         endereco.setBairro("bairro exemplo");
@@ -64,8 +65,8 @@ public class TesteRepositorioUsuario {
         funcionario.setCargo("Gerente");
         funcionario.setPapel(FUNCONARIO);
         funcionario.setCpf("00011122255");
-        funcionario.setDataNascimento(LocalDate.of(1996, 12, 28));
-        funcionario.setDataContratacao(LocalDate.of(2022, 01, 01));
+        funcionario.setDataNascimento(Date.valueOf(LocalDate.of(1996, 12, 28)));
+        funcionario.setDataContratacao(Date.valueOf(LocalDate.of(2022, 01, 02)));
         funcionario.calcularIdade();
         System.out.println(funcionario.getIdade());
     }

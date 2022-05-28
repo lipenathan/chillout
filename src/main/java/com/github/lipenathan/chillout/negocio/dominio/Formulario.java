@@ -1,28 +1,37 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
-import jakarta.persistence.*;
-
-
-import java.time.LocalDateTime;
+import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
+
+import static javax.persistence.CascadeType.PERSIST;
 
 @Entity
 public class Formulario {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "FORMULARIO_ID")
     private long id;
+    @Column(name = "TITULO_FORMULARIO")
     private String tituloFormulario;
+    @Column(name = "DESCRICAO_FORMULARIO")
     private String descricaoFormulario;
+    @Column(name = "QTD_PERGUNTAS")
     private int quantidadePerguntas;
-    @OneToMany(mappedBy = "id", cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Pergunta> perguntas;
-    private LocalDateTime dataCricao;
-    private LocalDateTime dataResposta;
-    @OneToOne(mappedBy = "id")
+    @Column(name = "DATA_CRIACAO")
+    private Date dataCricao;
+    @Column(name = "DATA_RESPOSTA")
+    private Date dataResposta;
+    @OneToOne
+    @JoinColumn(name = "psicologo_id")
     private Psicologo psicologo;
-    @OneToOne(mappedBy = "id")
+    @OneToOne(cascade = PERSIST)
+    @JoinColumn(name = "feedback_id")
     private Feedback feedback;
     @ManyToOne
+    @JoinColumn(name = "funcionario_id")
     private Funcionario funcionarioRespondente;
 
     public String getTituloFormulario() {
@@ -57,19 +66,19 @@ public class Formulario {
         this.perguntas = perguntas;
     }
 
-    public LocalDateTime getDataCricao() {
+    public Date getDataCricao() {
         return dataCricao;
     }
 
-    public void setDataCricao(LocalDateTime dataCricao) {
+    public void setDataCricao(Date dataCricao) {
         this.dataCricao = dataCricao;
     }
 
-    public LocalDateTime getDataResposta() {
+    public Date getDataResposta() {
         return dataResposta;
     }
 
-    public void setDataResposta(LocalDateTime dataResposta) {
+    public void setDataResposta(Date dataResposta) {
         this.dataResposta = dataResposta;
     }
 
