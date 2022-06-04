@@ -1,9 +1,14 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
+import com.github.lipenathan.chillout.negocio.exception.NegocioException;
+import com.github.lipenathan.chillout.utils.Validacao;
+import com.github.lipenathan.flynn.validador.Validador;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+import static com.github.lipenathan.chillout.utils.Validacao.validarCampoObrigatorio;
 import static javax.persistence.CascadeType.PERSIST;
 
 @Entity
@@ -16,23 +21,50 @@ public class Formulario {
     private String tituloFormulario;
     @Column(name = "DESCRICAO_FORMULARIO")
     private String descricaoFormulario;
-    @Column(name = "QTD_PERGUNTAS")
+    @Column(name = "QTD_PERGUNTA")
     private int quantidadePerguntas;
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = PERSIST, mappedBy = "id")
     private List<Pergunta> perguntas;
     @Column(name = "DATA_CRIACAO")
     private Date dataCricao;
     @Column(name = "DATA_RESPOSTA")
     private Date dataResposta;
     @OneToOne
-    @JoinColumn(name = "psicologo_id")
+    @JoinColumn(name = "PSICOLOGO_ID")
     private Psicologo psicologo;
-    @OneToOne(cascade = PERSIST)
-    @JoinColumn(name = "feedback_id")
+    @OneToOne
+    @JoinColumn(name = "FEEDBACK_ID")
     private Feedback feedback;
     @ManyToOne
-    @JoinColumn(name = "funcionario_id")
+    @JoinColumn(name = "FUNCIONARIO_ID")
     private Funcionario funcionarioRespondente;
+
+    public void validar() throws NegocioException {
+        try {
+            validarCampoObrigatorio("título formulário", tituloFormulario);
+            validarCampoObrigatorio("descrição formulário", descricaoFormulario);
+            validarCampoObrigatorio("lista de perguntas", perguntas);
+            validarCampoObrigatorio("psicólogo", psicologo);
+        } catch (Exception e) {
+            throw new NegocioException(e.getMessage());
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Formulario{" +
+                "id=" + id +
+                ", tituloFormulario='" + tituloFormulario + '\'' +
+                ", descricaoFormulario='" + descricaoFormulario + '\'' +
+                ", quantidadePerguntas=" + quantidadePerguntas +
+                ", perguntas=" + perguntas +
+                ", dataCricao=" + dataCricao +
+                ", dataResposta=" + dataResposta +
+                ", psicologo=" + psicologo +
+                ", feedback=" + feedback +
+                ", funcionarioRespondente=" + funcionarioRespondente +
+                '}';
+    }
 
     public String getTituloFormulario() {
         return tituloFormulario;

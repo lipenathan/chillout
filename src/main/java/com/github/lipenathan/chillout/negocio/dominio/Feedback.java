@@ -7,11 +7,11 @@ import java.util.Date;
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "feedback_id")
+    @Column(name = "FEEDBACK_ID")
     private long id;
-    @Column(name = "texto_feedback")
+    @Column(name = "TEXTO_FEEDBACK")
     private String feedback;
-    @Column(name = "data_feedback")
+    @Column(name = "DATA_FEEDBACK")
     private Date dataFeedback;
 
     public long getId() {

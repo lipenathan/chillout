@@ -10,25 +10,19 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
-import java.util.List;
-
 import java.util.Arrays;
+import java.util.List;
 
 @ViewScoped
 @ManagedBean
 public class CadastroEmpresaController implements Serializable {
 
     private Empresa empresa = new Empresa();
-
     private Endereco endereco = new Endereco();
-
     private String senha1;
-
     private String senha2;
-
     private final ProcessosCadastroEmpresa processosCadastroEmpresa = new ProcessosCadastroEmpresa();
     private FacesContext context;
-
     private List<SelectItem> comboRamos = carregarComboRamos();
 
     public void cadastrar() {
@@ -59,25 +53,25 @@ public class CadastroEmpresaController implements Serializable {
                 new SelectItem("Indústria de Automóveis", "Indústria de Automóveis"),
                 new SelectItem("Indústria de Roupas", "Indústria de Roupas"),
                 new SelectItem("Indústria de Laticínios", "Indústria de Laticínios"),
-                new SelectItem("Indústria de Equipamentos Eletrônicos","Indústria de Equipamentos Eletrônicos"),
-                new SelectItem("Indústria de Cosméticos","Indústria de Cosméticos"),
-                new SelectItem("Comércio de Roupas","Comércio de Roupas"),
-                new SelectItem("Comércio de Medicamentos","Comércio de Medicamentos"),
-                new SelectItem("Comércio de Cosméticos","Comércio de Cosméticos"),
+                new SelectItem("Indústria de Equipamentos Eletrônicos", "Indústria de Equipamentos Eletrônicos"),
+                new SelectItem("Indústria de Cosméticos", "Indústria de Cosméticos"),
+                new SelectItem("Comércio de Roupas", "Comércio de Roupas"),
+                new SelectItem("Comércio de Medicamentos", "Comércio de Medicamentos"),
+                new SelectItem("Comércio de Cosméticos", "Comércio de Cosméticos"),
                 new SelectItem("Comércio de Alimentos", "Comércio de Alimentos"),
-                new SelectItem("Comércio de Bebidas","Comércio de Bebidas"),
-                new SelectItem("Comércio de Ferragens","Comércio de Ferragens"),
-                new SelectItem("Comércio de Eletrônicos","Comércio de Eletrônicos"),
-                new SelectItem("Serviços de Psicologia","Serviços de Psicologia"),
+                new SelectItem("Comércio de Bebidas", "Comércio de Bebidas"),
+                new SelectItem("Comércio de Ferragens", "Comércio de Ferragens"),
+                new SelectItem("Comércio de Eletrônicos", "Comércio de Eletrônicos"),
+                new SelectItem("Serviços de Psicologia", "Serviços de Psicologia"),
                 new SelectItem("Serviços de Advocacia", "Serviços de Advocacia"),
-                new SelectItem("Serviços de Odontologia","Serviços de Odontologia"),
-                new SelectItem("Serviços de Consultoria","Serviços de Consultoria"),
-                new SelectItem("Serviços de Lavanderia","Serviços de Lavanderia"),
-                new SelectItem("Serviços de Tatuagens","Serviços de Tatuagens"),
-                new SelectItem("Serviços de Educação","Serviços de Educação"),
-                new SelectItem("Serviços de Aviação ","Serviços de Aviação"),
-                new SelectItem("Serviços de Limpeza","Serviços de Limpeza"),
-                new SelectItem("Serviços de Construção","Serviços de Construção "));
+                new SelectItem("Serviços de Odontologia", "Serviços de Odontologia"),
+                new SelectItem("Serviços de Consultoria", "Serviços de Consultoria"),
+                new SelectItem("Serviços de Lavanderia", "Serviços de Lavanderia"),
+                new SelectItem("Serviços de Tatuagens", "Serviços de Tatuagens"),
+                new SelectItem("Serviços de Educação", "Serviços de Educação"),
+                new SelectItem("Serviços de Aviação ", "Serviços de Aviação"),
+                new SelectItem("Serviços de Limpeza", "Serviços de Limpeza"),
+                new SelectItem("Serviços de Construção", "Serviços de Construção "));
     }
 
     //getters & setters

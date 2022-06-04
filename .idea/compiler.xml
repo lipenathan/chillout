@@ -9,8 +9,8 @@
         <module name="chillout" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="chillout" target="1.8" />
+    <bytecodeTargetLevel target="11">
+      <module name="chillout" target="10" />
     </bytecodeTargetLevel>
   </component>
 </project>

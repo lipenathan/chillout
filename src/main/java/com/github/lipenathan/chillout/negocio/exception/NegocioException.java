@@ -46,7 +46,7 @@ public class NegocioException extends Exception {
     public static NegocioException RAMO_EMPRESA_INVALIDO = new NegocioException(RAMO_EMPRESA_INVALIDO_MSG);
     public static final NegocioException PAPEL_INVALIDO = new NegocioException(PAPEL_INVALIDO_MSG);
 
-    private NegocioException(String msg) {
+    public NegocioException(String msg) {
         super(msg);
     }
 }

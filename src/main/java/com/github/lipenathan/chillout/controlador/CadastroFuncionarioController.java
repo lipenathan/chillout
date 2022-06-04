@@ -1,17 +1,13 @@
 package com.github.lipenathan.chillout.controlador;
 
 import com.github.lipenathan.chillout.negocio.dominio.*;
-import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroUsuario;
+import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroFuncionario;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
-import java.util.List;
-
-import static java.util.Arrays.asList;
 
 @ViewScoped
 @ManagedBean
@@ -25,7 +21,7 @@ public class CadastroFuncionarioController implements Serializable {
 
     private String senha2;
 
-    private final ProcessosCadastroUsuario processosCadastroUsuario = new ProcessosCadastroUsuario();
+    private final ProcessosCadastroFuncionario processosCadastroFuncionario = new ProcessosCadastroFuncionario();
 
     private FacesContext context;
 
@@ -35,7 +31,7 @@ public class CadastroFuncionarioController implements Serializable {
             validarSenhas();
             funcionario.setEnderecoUsuario(endereco);
             funcionario.setPapel(Papel.GESTOR);
-            processosCadastroUsuario.cadastrar(funcionario);
+            processosCadastroFuncionario.cadastrar(funcionario);
             limparCampos();
             context.addMessage(null, new FacesMessage("Usuário cadastrado com sucesso"));
         } catch (Exception e) {
