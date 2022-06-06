@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap;');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-size: 100%;
+  font-family: Poppins, Helvetica, sans-serif;
+  font-size: 16px;
+  color: black;
+  background: #5EFC8D;
+}
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 55px;
+  font-weight: 600;
+  color: black;
+}
+
+
+
+.conteudo-principal
+{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ .img {
+    width: 80vh;
+    height: 55vh;
+    margin-right: 150px;
+ 
+ }
+
+ .formulario {
+   margin-bottom: 200px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   height: 50vh;
+  
+  
+}
+
+
+label {
+ margin: 15px 0;
+  
+}
+
+
+.rodape {
+  padding: 50px;
+  border-top: 0.4px solid #FFF2E7;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 100px;
+  margin: 0 120px;
+}
+
+.pp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.redes-sociais {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.aa {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
