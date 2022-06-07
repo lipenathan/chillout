@@ -7,17 +7,18 @@ import javax.persistence.*;
 @Entity
 public class Empresa {
     @Id
-    @Column(name = "empresa_id")
+    @Column(name = "EMPRESA_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "NOME_EMPRESA")
     private String nome;
     private String cnpj;
-    @Column(name = "qtd_funcionarios")
+    @Column(name = "QTD_FUNCIONARIO")
     private long numeroFuncionarios;
     private String ramo;
     @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "ENDERECO_EMPRESA_ID", referencedColumnName = "ENDERECO_ID")
-    private Endereco enderecoEmpresa;
+    @JoinColumn(name = "ENDERECO_ID")
+    private Endereco enderecoEmpresa = new Endereco();
 
     public void validar() throws NegocioException {
         if (enderecoEmpresa == null) throw NegocioException.ENDERECO_INVALIDO;

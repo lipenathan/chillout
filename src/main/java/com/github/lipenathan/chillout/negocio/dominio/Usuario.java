@@ -12,7 +12,7 @@ import static javax.persistence.CascadeType.PERSIST;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Usuario {
+public class Usuario {
     @Id
     @Column(name = "USUARIO_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public abstract class Usuario {
     @Column(name = "TIPO_USUARIO")
     protected Papel papel;
     @OneToOne(cascade = PERSIST)
-    @JoinColumn(name = "ENDERECO_ID_USUARIO", referencedColumnName = "ENDERECO_ID")
+    @JoinColumn(name = "ENDERECO_ID")
     protected Endereco enderecoUsuario;
 
     public void calcularIdade() {
@@ -48,12 +48,11 @@ public abstract class Usuario {
         if (dataNascimento == null) throw NegocioException.DATA_NASCIMENTO_INVALIDA;
         if (papel == null) throw NegocioException.PAPEL_INVALIDO;
         enderecoUsuario.validar();
-        validarcpf();
         validarSenha();
     }
 
     /** Verifica se o CPF é válido **/
-    private void validarcpf() throws NegocioException {
+    protected void validarcpf() throws NegocioException {
         if (cpf == null || cpf.isEmpty()) throw NegocioException.DOCUMENTO_INVALIDO;
         if (!validarCpf(cpf)) throw NegocioException.DOCUMENTO_INVALIDO;
     }

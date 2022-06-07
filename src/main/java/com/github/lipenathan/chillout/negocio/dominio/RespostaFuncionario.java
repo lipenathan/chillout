@@ -8,21 +8,23 @@ import java.io.Serializable;
 public class RespostaFuncionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "RESPOSTA_FUNCIONARIO_ID")
     private long id;
     @ManyToOne
-    @JoinColumn(name = "id_resposta_pronta")
-    private RespostaPronta resposta;
+    @JoinColumn(name = "RESPOSTA_ID")
+    private Resposta resposta;
+    @Column(name = "TEXTO_RESPOSTA_SUBJETIVA")
     private String respostaSubjetiva;
 
     public long getId() {
         return id;
     }
 
-    public RespostaPronta getResposta() {
+    public Resposta getResposta() {
         return resposta;
     }
 
-    public void setResposta(RespostaPronta resposta) {
+    public void setResposta(Resposta resposta) {
         this.resposta = resposta;
     }
 

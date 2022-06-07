@@ -3,14 +3,14 @@ package com.github.lipenathan.chillout.negocio.dominio;
 import javax.persistence.*;
 
 @Entity
-public class RespostaPronta {
+public class Resposta {
     @Id
-    @Column(name = "resposta_id")
+    @Column(name = "RESPOSTA_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "texto_resposta")
+    @Column(name = "TEXTO_RESPOSTA")
     private String textoResposta;
-    @Column(name = "numero_resposta")
+    @Column(name = "NUMERO_RESPOSTA")
     private int notaResposta;
 
     public long getId() {

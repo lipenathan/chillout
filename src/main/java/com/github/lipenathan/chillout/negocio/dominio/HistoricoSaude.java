@@ -2,7 +2,7 @@ package com.github.lipenathan.chillout.negocio.dominio;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "HISTORICO_SAUDE")
 public class HistoricoSaude {
     @Id
     @Column(name = "HISTORICO_SAUDE_ID")

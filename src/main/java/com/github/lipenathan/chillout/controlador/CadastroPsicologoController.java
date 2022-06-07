@@ -1,8 +1,9 @@
 package com.github.lipenathan.chillout.controlador;
 
 import com.github.lipenathan.chillout.negocio.dominio.Endereco;
+import com.github.lipenathan.chillout.negocio.dominio.Papel;
 import com.github.lipenathan.chillout.negocio.dominio.Psicologo;
-import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroUsuario;
+import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroPsicologo;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -22,7 +23,7 @@ public class CadastroPsicologoController implements Serializable {
 
     private String senha2;
 
-    private final ProcessosCadastroUsuario processosCadastroUsuario = new ProcessosCadastroUsuario();
+    private final ProcessosCadastroPsicologo processosCadastroPsicologo = new ProcessosCadastroPsicologo();
 
     private FacesContext context;
 
@@ -31,7 +32,8 @@ public class CadastroPsicologoController implements Serializable {
         try {
             validarSenhas();
             psicologo.setEnderecoUsuario(endereco);
-            processosCadastroUsuario.cadastrar(psicologo);
+            psicologo.setPapel(Papel.PSICOLOGO);
+            processosCadastroPsicologo.cadastrar(psicologo);
             limparCampos();
             context.addMessage(null, new FacesMessage("Usuário cadastrado com sucesso"));
         } catch (Exception e) {

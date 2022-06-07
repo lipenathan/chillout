@@ -39,28 +39,80 @@
     <br/>
     <br/>
     <div class="container">
-        <h4 class="mb-3">Perguntas</h4>
         <h:form>
-            <h:commandButton image="resources/imagens/plus.png" style="width: 30px"/>
-            <div class="row g-5" style="justify-content: center; align-content: center">
-                <div class="cl-md-8">
-                    <label for="pergunta" class="form-label">Pergunta</label>
-                    <h:inputText id="pergunta" value=""/><br/>
-                    <label for="r1" class="form-label">Resposta 1 para Pergunta</label>
-                    <h:inputText id="r1" value=""/><br/>
-                    <label for="r2" class="form-label">Resposta 2 para Pergunta</label>
-                    <h:inputText id="r2" value=""/><br/>
-                    <label for="r3" class="form-label">Resposta 3 para Pergunta</label>
-                    <h:inputText id="r3" value=""/><br/>
-                    <label for="r4" class="form-label">Resposta 4 para Pergunta</label>
-                    <h:inputText id="r4" value=""/><br/>
-                    <label for="r5" class="form-label">Resposta 5 para Pergunta</label>
-                    <h:inputText id="r5" value=""/><br/>
+            <div class="container my-5 form_perguntas">
+                <h3>Título Formulário</h3>
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                    <h:inputTextarea value="#{cadastroFomularioController.formulario.tituloFormulario}">
+                        <f:passThroughAttribute name="placeholder" value="Insira um Título para o formulário"/>
+                    </h:inputTextarea>
+                </div>
+                <h3>Descrição Formulário</h3>
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                    <h:inputTextarea value="#{cadastroFomularioController.formulario.descricaoFormulario}">
+                        <f:passThroughAttribute name="placeholder" value="Insira uma descrição para o formulário"/>
+                    </h:inputTextarea>
+                </div>
+                <h2 class="mb-3">Perguntas</h2>
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                    <h3>Pergunta 1</h3>
+                    <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(0).textoPergunta}">
+                        <f:passThroughAttribute name="placeholder" value="Escreva a primeira pergunta"/>
+                    </h:inputTextarea>
+                    <h:outputLabel>Resposta peso 1</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(0, 0).textoResposta}">
+                    </h:inputText>
+                    <h:outputLabel>Resposta peso 2</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(0, 1).textoResposta}">
+                    </h:inputText>
+                    <h:outputLabel>Resposta peso 3</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(0, 2).textoResposta}">
+                    </h:inputText>
+                    <h:outputLabel>Resposta peso 4</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(0, 3).textoResposta}">
+                    </h:inputText>
+                    <h:outputLabel>Resposta peso 5</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(0, 4).textoResposta}">
+                    </h:inputText><br/>
+                </div>
+            </div>
+
+            <div class="container my-5 form_perguntas">
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                    <h3>Pergunta 2</h3>
+                    <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(1).textoPergunta}">
+                        <f:passThroughAttribute name="placeholder" value="Escreva a primeira pergunta"/>
+                    </h:inputTextarea>
+                    <h:outputLabel>Resposta peso 1</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(1, 0).textoResposta}">
+                    </h:inputText>
+                    <h:outputLabel>Resposta peso 2</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(1, 1).textoResposta}">
+                    </h:inputText>
+                    <h:outputLabel>Resposta peso 3</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(1, 2).textoResposta}">
+                    </h:inputText>
+                    <h:outputLabel>Resposta peso 4</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(1, 3).textoResposta}">
+                    </h:inputText>
+                    <h:outputLabel>Resposta peso 5</h:outputLabel>
+                    <h:inputText value="#{cadastroFomularioController.getResposta(1, 4).textoResposta}">
+                    </h:inputText><br/>
+                </div>
+            </div>
+
+            <div class="container my-5 form_perguntas">
+                <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                    <h3>Pergunta para resposta subjetiva</h3>
+                    <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(2).textoPergunta}">
+                        <f:passThroughAttribute name="placeholder"
+                                                value="Escreva uma pergunta para dissertação do cooperado"/>
+                    </h:inputTextarea>
                 </div>
             </div>
             <div class="row g-5">
                 <div class="col-md-3">
-                    <h:commandButton value="Cadastrar" actionListener="#{cadastroPsicologoController.cadastrar}"/>
+                    <h:commandButton value="Cadastrar" actionListener="#{cadastroFomularioController.cadastrar}"/>
                 </div>
             </div>
         </h:form>

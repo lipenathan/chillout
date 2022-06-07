@@ -10,7 +10,8 @@ import static com.github.lipenathan.chillout.negocio.dominio.Papel.FUNCONARIO;
 
 public class TesteRepositorioUsuario {
 
-    private Repositorio<Usuario> repositorioUsuario = new Repositorio<>(Usuario.class);
+    private Repositorio<Psicologo> repositorioPsicologo = new Repositorio<>(Psicologo.class);
+    private Repositorio<Funcionario> repositorioUsuario = new Repositorio<>(Funcionario.class);
 
     @Test
     public void testeInserirPsicologo() {
@@ -27,7 +28,7 @@ public class TesteRepositorioUsuario {
         endereco.setEstado("PR");
         endereco.setPais("Brasil");
         psicologo.setEnderecoUsuario(endereco);
-        repositorioUsuario.inserir(psicologo);
+        repositorioPsicologo.inserir(psicologo);
     }
 
     @Test
@@ -67,7 +68,7 @@ public class TesteRepositorioUsuario {
         funcionario.setCpf("00011122255");
         funcionario.setDataNascimento(Date.valueOf(LocalDate.of(1996, 12, 28)));
         funcionario.setDataContratacao(Date.valueOf(LocalDate.of(2022, 01, 02)));
-        funcionario.calcularIdade();
+        funcionario.getUsuario().calcularIdade();
         System.out.println(funcionario.getIdade());
     }
 }

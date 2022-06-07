@@ -2,51 +2,51 @@ package com.github.lipenathan.chillout.negocio.dominio;
 
 import com.github.lipenathan.chillout.negocio.exception.NegocioException;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+
+import java.util.Date;
 
 import static com.github.lipenathan.flynn.validador.Validador.validarCrm;
 
 @Entity
-@AttributeOverride(name = "USUARIO_ID", column = @Column(name = "psicologo_id"))
-public class Psicologo extends Usuario {
+public class Psicologo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String crm;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "USUARIO_ID")
+    private Usuario usuario = new Usuario();
 
     @Override
     public String toString() {
         return "Psicologo{" +
                 "crm='" + crm + '\'' +
                 ", id=" + id +
-                ", nome='" + nome + '\'' +
-                ", sobrenome='" + sobrenome + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
-                ", idade=" + idade +
-                ", senha='" + senha + '\'' +
-                ", papel=" + papel +
-                ", enderecoUsuario=" + enderecoUsuario +
-                '}';
+                ", usuario='" + usuario + '\'';
     }
 
     public Psicologo() {
-        this.papel = Papel.PSICOLOGO;
+        this.usuario.setPapel(Papel.PSICOLOGO);
     }
 
-    public Psicologo(Usuario usuario) {
-        nome = usuario.nome;
-        sobrenome = usuario.sobrenome;
-        dataNascimento = usuario.dataNascimento;
-        cpf = usuario.cpf;
-        email = usuario.email;
+    public Psicologo(long id, String crm) {
+        this.id = id;
+        this.crm = crm;
     }
 
-    @Override
     public void validar() throws NegocioException {
-        validarUsuario();
+        usuario.validarUsuario();
         if (!validarCrm(crm)) throw NegocioException.DOCUMENTO_INVALIDO;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getCrm() {
@@ -55,5 +55,77 @@ public class Psicologo extends Usuario {
 
     public void setCrm(String crm) {
         this.crm = crm;
+    }
+
+    public String getNome() {
+        return usuario.nome;
+    }
+
+    public void setNome(String nome) {
+        this.usuario.nome = nome;
+    }
+
+    public String getSobrenome() {
+        return usuario.sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.usuario.sobrenome = sobrenome;
+    }
+
+    public String getEmail() {
+        return usuario.email;
+    }
+
+    public void setEmail(String email) {
+        this.usuario.email = email;
+    }
+
+    public void setIdade(int idade) {
+        this.usuario.idade = idade;
+    }
+
+    public Date getDataNascimento() {
+        return usuario.dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.usuario.dataNascimento = dataNascimento;
+    }
+
+    public String getCpf() {
+        return usuario.cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.usuario.cpf = cpf;
+    }
+
+    public int getIdade() {
+        return usuario.idade;
+    }
+
+    public String getSenha() {
+        return usuario.senha;
+    }
+
+    public void setSenha(String senha) {
+        this.usuario.senha = senha;
+    }
+
+    public Papel getPapel() {
+        return usuario.papel;
+    }
+
+    public void setPapel(Papel papel) {
+        this.usuario.papel = papel;
+    }
+
+    public Endereco getEnderecoUsuario() {
+        return usuario.enderecoUsuario;
+    }
+
+    public void setEnderecoUsuario(Endereco enderecoUsuario) {
+        this.usuario.enderecoUsuario = enderecoUsuario;
     }
 }
