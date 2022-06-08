@@ -1,89 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap;');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-
-body {
-  font-size: 100%;
-  font-family: Poppins, Helvetica, sans-serif;
-  font-size: 16px;
-  color: black;
-  background: #5EFC8D;
-}
-
-h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 65px;  
-  font-weight: 700;
-  color: black;
-}
-
-#img_logo {
-  width: 120px;
-  height: 30px;
-}
-
-.navbar-nav > li{
-  padding-left:30px;
-  padding-right:30px;
-}
-.nav-item-button {
-  margin-left: 70%;
-}
-#cabecalho {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  padding: 24px;
-  font-family: Inter, Arial, sans-serif;
-  color: black;
-  background: #D8DDEF;
-}
-
-#bt_logar,#bt_formulario {
-  background: #4D7C8A;
-  color: white;
-  border-style: none;
-}
-
-#bt_formulario{
-  border-radius: 10px;
-  width: 350px;
-  height: 3em;
-}
-
-#bt_empresa{
-  background-color: lightgray;
-  color: black;
-  border-radius: 10px;
-  width: 250px;
-  height: 3em;
-
-}
 
 
-.conteudo-principal-escrito-titulo {
+
+
+
+.home-main-escrito-titulo {
   margin-left: 1em;
   margin-bottom: 180px ;
 
 }
 
-.conteudo-principal {
+.home-main {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
 
 }
+
 .conteudo-principal-subtexto {
   margin-left: 180px;
-
-
-
 }
 .botoes {
   display: flex;
@@ -123,43 +59,4 @@ gap: 30px;
   display: flex;
   flex-direction: column;
   margin-left: 50px;
-}
-.rodape {
-  padding: 50px;
-  border-top: 0.4px solid #FFF2E7;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 100px;
-  margin: 0 120px;
-}
-
-.pp {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.nav-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.redes-sociais {
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-
-.aa {
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
 }

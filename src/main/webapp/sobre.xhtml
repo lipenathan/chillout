@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"
+            type="javascript"></script>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="resources/css/style.css"
+    />
+</h:head>
+<ui:composition template="_template.xhtml">
+    <ui:define name="conteudo">
+        <article class="container-sm mt-5 float-center">
+            <h2 class="text-center" style="font-weight: 600;">Chillout</h2><br/><br/>
+            <h3 style="font-weight:500;">O que é o chillout?</h3><br/>
+
+            <p>O Chillout é uma ferramenta focada na qualidade do ambiente corporativo,
+                que tem como objetivo dar suporte às empresas que prezam pela saúde
+                física e mental de seus profissionais.
+            </p>
+            <p>O Chillout é uma ferramenta que disponibiliza um questionário elaborado por
+                Psicólogos especializados, para que os colaboradores que sentem a
+                necessidade de realizar uma avaliação do seu estado mental e emocional.
+            </p>
+
+            <p>O Chillout proporciona sigilo e discrição das informações preenchidas, e da
+                ao respondente um feedback após suas informações serem avaliadas pelos
+                Psicólogos.
+            </p>
+
+            <p>O Chillout também gera um relatório com indicativos para que a corporação
+                possa tomar medidas antecipadas, afim de tornar o ambiente corporativo
+                mais saudável e combater o burnout.
+            </p>
+
+            <p>Um ambiente de trabalho em harmonia, é como uma árvore que gera bons frutos.</p><br/><br/>
+
+            <h3>O que é Burnout?</h3><br/>
+
+            <p>Síndrome de Burnout ou Síndrome do Esgotamento Profissional é um disturbio
+                emocional com sintomas de exaustão extrema, estresse e esgotamento físico
+                resultante de situações de trabalho desgastante, que demandam muita
+                competitividade ou responsabilidade.
+            </p>
+
+            <P>A principal causa da doença é justamente o excesso de trabalho. Esta síndrome
+                é comum em profissionais que atuam diariamente sob pressão e com
+                responsabilidades constantes, como médicos, enfermeiros, professores,
+                policiais, jornalistas, dentre outros.
+            </P>
+
+            <P>Traduzindo do inglês, "burn" quer dizer queima e "out" exterior.</P>
+
+            <P>A Síndrome de Burnout também pode acontecer quando o profissional planeja
+                ou é pautado para objetivos de trabalho muito difíceis, situações em que
+                a pessoa possa achar, por algum motivo, não ter capacidades suficientes
+                para os cumprir.
+            </P>
+
+            <P>Essa síndrome pode resultar em estado de depressão profunda e por isso é
+                essencial procurar apoio profissional no surgimento dos primeiros sintomas.
+            </P>
+
+        </article>
+
+        <section class="container container-fluid " style="margin-top:400px; margin-bottom:100px">
+            <img class="mx-auto d-block" src="resources/imagens/imagem_msg.png"/>
+            <p class="text-center" style="font-weight: 600; font-size:33px;
+        font-family:arial">Perguntas Frenquentes</p>
+        </section>
+
+        <section class="row align-items-center mb-0">
+            <div class="dropdown row">
+                <button class="btn dropdown-toggle"
+                        data-bs-toggle="dropdown" style="font-weight: 600; margin-bottom:30px">Como funciona o Chillout?
+                </button>
+                <br/>
+                <div class="dropdown-menu">
+                    <p class="dropdown-item">É bem simples, basta preencher nosso formulário
+                        com os dados da sua empresa, e nossa equipe entrará em contato<br/>
+                        para darmos continuidade em nossa parceria.
+                    </p>
+                </div>
+            </div>
+            <div class="dropdown row">
+                <button class="btn dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        style="font-weight: 600; margin-bottom:30px">Tenho que pagar para usar os serviços do Chillout?
+                </button>
+                <br/>
+                <div class="dropdown-menu">
+                    <p class="dropdown-item">Não, a princípio este é um projeto universitário que visa modelar uma ferramenta,<br/>
+                        para auxiliar profissionais que sofrem com a Síndrome de Burnout.
+                    </p>
+                </div>
+            </div>
+
+            <div class="dropdown row ">
+                <button class="btn dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        style="font-weight: 600; margin-bottom:30px">Preciso ser propietário de uma empresa para usar os serviços do Chillout?
+                </button>
+                <br/>
+                <div class="dropdown-menu">
+                    <p class="dropdown-item">Não, se você trabalha em uma empresa que ainda não tem parceria com a gente, é só clicar<br/>
+                        no botão 'indique o Chillout' e preencher o formulário com algumas informações, que <br/>
+                        entraremos em contato com a empresa em que trabalha.
+                    </p>
+                    <button type="button" class="btn btn-success ms-3 ">
+                        <a href="#" class="dropdown-item">Indique o Chillout</a>
+                    </button>
+                </div>
+            </div>
+
+            <div class="dropdown row">
+                <button class="btn dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        style="font-weight: 600; margin-bottom:30px">E depois que eu responder o questionário, o que acontece?
+                </button>
+                <br/>
+                <div class="dropdown-menu">
+                    <p class="dropdown-item">Todas as suas respostas, serão enviadas para um psicólogo parceiro da Chillout que avaliará<br/>
+                        seu perfil de acordo com suas respostas, e lhe enviará um email com um feedback<br/>
+                        do formulário que respondeu.
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="dropdown row">
+                <button class="btn dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        style="font-weight: 600; margin-bottom:30px">As pessoas da empresa em que trabalho, terão acesso as minhas respostas?
+                </button>
+                <br/>
+                <div class="dropdown-menu">
+                    <p class="dropdown-item">Não, a Chillout trabalha com criptografia dos seus dados para lhe proporcionar um alto nível de
+                        <br/>
+                        segurança, sendo assim, nem mesmo o profissional da área de saúde, poderá identifica-lo.<br/>
+
+                    </p>
+                </div>
+            </div>
+
+            <div class="dropdown row">
+                <button class="btn dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        style="font-weight: 600; margin-bottom:30px">Como o Chillout, pode ajudar a minha empresa?
+                </button>
+                <br/>
+                <div class="dropdown-menu">
+                    <p class="dropdown-item">Através de informações que são coletadas durante a avaliação dos formulários, o sistema
+                        <br/>
+                        gera uma documentação com indicativos relevantes, que são enviados como feedback <br/>
+                        para o contratante, e posteriormente podem ser utilizados pela empresa como uma<br/>
+                        ferramenta para auxiliar na tomada de decisões, de implementação de medidas, afim de<br/>
+                        impactar com melhorias no ambiente de trabalho e combater a Síndrome de Burnout.<br/>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="row mt-0" style="height:630px; margin-bottom:100px">
+            <div id="div_pai-footer" style="margin-top:100px" >
+                <img id="img_mental+health" src="resources/imagens/saude_mental.png"
+                     class=" float-end "  style="width:600px "/>
+
+                <div id="div_footer" class="border container  rounded-4 col-4">
+                    <div id="vamos-comecar">Vamos Começar!</div>
+                    <button id="btn_logar" type="button" class="btn" style="margin-left:65px">Logar</button>
+                    <button id="btn_cadastrar_empresa" type="button" class="btn" style="margin-left:65px">Cadastrar Empresa</button>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                crossorigin="anonymous"></script>
+    </ui:define>
+</ui:composition>
+</html>

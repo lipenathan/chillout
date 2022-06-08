@@ -1,6 +1,6 @@
 /* Importações */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap;');
-
+/*@import url('./reset.min.css');*/
 /* Tags Personalizadas */
 body {
     font-family: Poppins, Helvetica, sans-serif;
@@ -14,6 +14,22 @@ h1 {
     font-size: 32px;
     color: black;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+p{
+    text-align: justify;
+}
+
+label {
+    margin: 15px 0;
+}
+
 /* Classes Personalizadas */
 .g-5{
     margin-top: 10px;
@@ -24,6 +40,114 @@ h1 {
     text-align: center;
 }
 
+.rodape {
+    padding: 50px;
+    border-top: 0.4px solid #FFF2E7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    margin: 0 120px;
+}
+
+.pp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.redes-sociais {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aa {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-main-escrito-titulo {
+    margin-left: 1em;
+    margin-bottom: 180px ;
+}
+
+.home-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.conteudo-principal-subtexto {
+    margin-left: 180px;
+}
+.botoes {
+    display: flex;
+    margin-right: 10px;
+    padding-left: 14%;
+    flex-direction: row;
+    gap: 3em;
+}
+.conteudo-principal-escrito {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.conteudo-principal-imagem{
+    margin-top: 5%;
+    height: 550px;
+}
+
+.conteudo-secundario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.conteudo-secundario-imagem {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.conteudo-meio {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.contato-main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario {
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 50vh;
+}
+
+.contato-img {
+    width: 80vh;
+    height: 55vh;
+    margin-right: 150px;
+}
 /* Componentes personalizados */
 #img_logo {
     width: 120px;
@@ -41,18 +165,41 @@ h1 {
     color: white;
 }
 
-p{
-    text-align: justify;
+#bt_formulario{
+    border-radius: 10px;
+    width: 350px;
+    height: 3em;
+    background: #4D7C8A;
+    color: white;
+    border-style: none;
 }
+
+#bt_empresa{
+    background-color: lightgray;
+    color: black;
+    border-radius: 10px;
+    width: 250px;
+    height: 3em;
+}
+
+#logo_home {
+    width: 80vh;
+    height: 55vh;
+    margin-right: 150px;
+
+}
+
 #div_footer{
     background-color:#D8DDEF;
     width:1050px;
     height:350px;
     margin-top: 150px;
 }
+
 #div_pai-footer{
     margin-top:400px;
 }
+
 #vamos-comecar{
     width:400px;
     height:50px;

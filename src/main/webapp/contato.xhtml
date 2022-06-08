@@ -1,155 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://xmlns.jcp.org/jsf/html"
-  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-  xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
 >
-  <h:head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="resources/css/style.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-      type="javascript"
-    ></script>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="resources/css/contato.css"
-    />
-  </h:head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="home.html">
-          <img
-            src="resources/imagens/chillout_logo.png"
-            alt="logo escrito Chillout"
-        /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="home.html"
-                >Home <span class="sr-only"></span
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sobre</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Dúvidas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contato</a>
-            </li>
-            <li class="nav-item-button">
-              <button id="bt_logar" class="btn btn-outline-light me-2">
-                Logar
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <div class="conteudo-principal">
-        <img
-          class="img"
-          src="resources/imagens/Felicidade-no-Trabalho-iStock-914469664.jpg"
-          alt="Felicidade no trabalho"
-        />
-        <form class="formulario">
-          <h1>Entre em contato</h1>
-          <p>
-            Tire dúvidas e receba um atendimento <br />
-            personalizado para a sua empresa
-          </p>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Nome/Nome de empresa</label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="nome completo ou nome da empresa"
-            />
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Email</label>
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              placeholder="Endereço de E-mail"
-            />
-            <small id="emailHelp" class="form-text text-muted"
-              >Nunca vamos compartilhar seu email, com ninguém.</small
-            >
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"
-              >Mensagem</label
-            >
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              placeholder="Como podemos te ajudar?"
-            ></textarea>
-          </div>
-          <button type="button" class="btn btn-primary btn-lg btn-block">
-            Enviar
-          </button>
-        </form>
-      </div>
-    </main>
-
-    <footer>
-      <div class="rodape">
-        <div class="pp">
-          <p>2021@Chillout</p>
-          <p>All Rigths reserved.</p>
-        </div>
-
-        <div class="nav-footer">
-          <a href="" class="link-dark">Home</a>
-          <a href="" class="link-dark">Sobre</a>
-          <a href="" class="link-dark">Dúvidas</a>
-          <a href="" class="link-dark">Contato</a>
-        </div>
-        <div class="redes-sociais">
-          <a href="" class="link-dark">Facebook</a>
-          <a href="" class="link-dark">Instagram</a>
-          <a href="" class="link-dark">Twitter</a>
-          <a href="" class="link-dark">Linkedin</a>
-        </div>
-
-        <div class="aa">
-          <a href="" class="link-dark">Privacy Policy</a>
-          <a href="" class="link-dark">Terms Of Service</a>
-        </div>
-      </div>
-    </footer>
-  </body>
+<h:head/>
+<ui:composition template="_template.xhtml">
+    <ui:define name="conteudo">
+        <main>
+            <div class="contato-main">
+                <img
+                        class="contato-img"
+                        src="resources/imagens/trabalhadores_felizes.png"
+                        alt="Felicidade no trabalho"
+                />
+                <form class="formulario">
+                    <h1>Entre em contato</h1>
+                    <p>
+                        Tire dúvidas e receba um atendimento <br/>
+                        personalizado para a sua empresa
+                    </p>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nome/Nome de empresa</label>
+                        <input
+                                type="email"
+                                class="form-control"
+                                id="exampleInputEmail1"
+                                aria-describedby="emailHelp"
+                                placeholder="nome completo ou nome da empresa"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Email</label>
+                        <input
+                                type="password"
+                                class="form-control"
+                                id="exampleInputPassword1"
+                                placeholder="Endereço de E-mail"
+                        />
+                        <small id="emailHelp" class="form-text text-muted"
+                        >Nunca vamos compartilhar seu email, com ninguém.</small
+                        >
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label"
+                        >Mensagem</label
+                        >
+                        <textarea
+                                class="form-control"
+                                id="exampleFormControlTextarea1"
+                                rows="3"
+                                placeholder="Como podemos te ajudar?"
+                        ></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">
+                        Enviar
+                    </button>
+                </form>
+            </div>
+        </main>
+    </ui:define>
+</ui:composition>
 </html>
