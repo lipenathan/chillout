@@ -28,19 +28,11 @@ public class CadastroEmpresaController implements Serializable {
     public void cadastrar() {
         context = FacesContext.getCurrentInstance();
         try {
-            validarSenhas();
             empresa.setEnderecoEmpresa(endereco);
             processosCadastroEmpresa.cadastrar(empresa);
             context.addMessage(null, new FacesMessage("Empresa cadastrada com sucesso"));
         } catch (Exception e) {
             context.addMessage(null, new FacesMessage(e.getMessage()));
-        }
-    }
-
-    // métodos de apoio privados
-    private void validarSenhas() throws Exception {
-        if (!senha1.equals(senha2)) {
-            throw new Exception("As senhas precisam ser a mesma");
         }
     }
 

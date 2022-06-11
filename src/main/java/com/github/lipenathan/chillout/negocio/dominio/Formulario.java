@@ -1,8 +1,6 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
 import com.github.lipenathan.chillout.negocio.exception.NegocioException;
-import com.github.lipenathan.chillout.utils.Validacao;
-import com.github.lipenathan.flynn.validador.Validador;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -27,17 +25,12 @@ public class Formulario {
     private List<Pergunta> perguntas;
     @Column(name = "DATA_CRIACAO")
     private Date dataCricao;
-    @Column(name = "DATA_RESPOSTA")
-    private Date dataResposta;
     @OneToOne
     @JoinColumn(name = "PSICOLOGO_ID")
     private Psicologo psicologo;
-    @OneToOne
-    @JoinColumn(name = "FEEDBACK_ID")
-    private Feedback feedback;
     @ManyToOne
-    @JoinColumn(name = "FUNCIONARIO_ID")
-    private Funcionario funcionarioRespondente;
+    @JoinColumn(name = "EMPRESA_ID")
+    private Empresa empresa;
 
     public void validar() throws NegocioException {
         try {
@@ -50,20 +43,17 @@ public class Formulario {
         }
     }
 
+    public void relacionarPerguntas() {
+        perguntas.forEach(p -> p.setFormulario(this) );
+    }
+
     @Override
     public String toString() {
-        return "Formulario{" +
-                "id=" + id +
-                ", tituloFormulario='" + tituloFormulario + '\'' +
-                ", descricaoFormulario='" + descricaoFormulario + '\'' +
-                ", quantidadePerguntas=" + quantidadePerguntas +
-                ", perguntas=" + perguntas +
-                ", dataCricao=" + dataCricao +
-                ", dataResposta=" + dataResposta +
-                ", psicologo=" + psicologo +
-                ", feedback=" + feedback +
-                ", funcionarioRespondente=" + funcionarioRespondente +
-                '}';
+        return "Formulario{" + "id=" + id + ", tituloFormulario='" + tituloFormulario + '\'' + ", descricaoFormulario='" + descricaoFormulario + '\'' + ", quantidadePerguntas=" + quantidadePerguntas + ", perguntas=" + perguntas + ", dataCricao=" + dataCricao + ", psicologo=" + psicologo + '}';
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getTituloFormulario() {
@@ -106,14 +96,6 @@ public class Formulario {
         this.dataCricao = dataCricao;
     }
 
-    public Date getDataResposta() {
-        return dataResposta;
-    }
-
-    public void setDataResposta(Date dataResposta) {
-        this.dataResposta = dataResposta;
-    }
-
     public Psicologo getPsicologo() {
         return psicologo;
     }
@@ -122,19 +104,11 @@ public class Formulario {
         this.psicologo = psicologo;
     }
 
-    public Feedback getFeedback() {
-        return feedback;
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    public void setFeedback(Feedback feedback) {
-        this.feedback = feedback;
-    }
-
-    public Funcionario getFuncionarioRespondente() {
-        return funcionarioRespondente;
-    }
-
-    public void setFuncionarioRespondente(Funcionario funcionarioRespondente) {
-        this.funcionarioRespondente = funcionarioRespondente;
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }

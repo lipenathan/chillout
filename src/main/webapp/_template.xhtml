@@ -13,6 +13,21 @@
               integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
               crossorigin="anonymous"/>
         <link rel="stylesheet" href="resources/css/style.css"/>
+        <style>
+            .nav-link {
+                color: green;
+            }
+
+            .nav-item>a:hover {
+                color: green;
+            }
+
+            /*code to change background color*/
+            .navbar-nav>.active>a {
+                background-color: #C0C0C0;
+                color: green;
+            }
+        </style>
     </h:head>
     <div id="cabecalho" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -62,5 +77,16 @@
             </div>
         </div>
     </footer>
+    <script>
+        $(document).ready(function () {
+
+            $('ul.navbar-nav > li')
+                .click(function (e) {
+                    $('ul.navbar-nav > li')
+                        .removeClass('active');
+                    $(this).addClass('active');
+                });
+        });
+    </script>
 </h:body>
 </html>

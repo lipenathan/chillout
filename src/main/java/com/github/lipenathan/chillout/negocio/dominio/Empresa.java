@@ -20,6 +20,13 @@ public class Empresa {
     @JoinColumn(name = "ENDERECO_ID")
     private Endereco enderecoEmpresa = new Endereco();
 
+    public Empresa() {
+    }
+
+    public Empresa(long id) {
+        this.id = id;
+    }
+
     public void validar() throws NegocioException {
         if (enderecoEmpresa == null) throw NegocioException.ENDERECO_INVALIDO;
         enderecoEmpresa.validar();

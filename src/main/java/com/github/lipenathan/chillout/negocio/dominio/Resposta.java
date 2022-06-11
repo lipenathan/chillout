@@ -12,6 +12,17 @@ public class Resposta {
     private String textoResposta;
     @Column(name = "NUMERO_RESPOSTA")
     private int notaResposta;
+    @ManyToOne
+    @JoinColumn(name = "PERGUNTA_ID")
+    private Pergunta pergunta;
+
+    public Resposta() {
+    }
+
+    public Resposta(int notaResposta, Pergunta pergunta) {
+        this.notaResposta = notaResposta;
+        this.pergunta = pergunta;
+    }
 
     public long getId() {
         return id;

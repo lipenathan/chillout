@@ -3,6 +3,7 @@ package com.github.lipenathan.chillout.negocio.dominio;
 import com.github.lipenathan.chillout.negocio.exception.NegocioException;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,18 +19,20 @@ public class Pergunta {
     private String textoPergunta;
     @Column(name = "PERGUNTA_SUBJETIVA")
     private boolean subjetiva;
-    @OneToOne
-    @JoinColumn(name = "RESPOSTA_FUNCIONARIO_ID")
-    private RespostaFuncionario respostaFuncionario;
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "id")
-    private List<Resposta> respostas = Arrays.asList(new Resposta(), new Resposta(), new Resposta(),
-            new Resposta(), new Resposta());
+    private List<Resposta> respostas;
+    @ManyToOne
+    @JoinColumn(name = "FORMULARIO_ID")
+    private Formulario formulario;
 
     public Pergunta(boolean subjetiva) {
         this.subjetiva = subjetiva;
+        this.respostas = new ArrayList<>();
     }
 
     public Pergunta() {
+        this.respostas = Arrays.asList(new Resposta(1, this), new Resposta(2, this),
+                new Resposta(3, this), new Resposta(4, this), new Resposta(5, this));
     }
 
     public void validar() throws NegocioException {
@@ -46,7 +49,6 @@ public class Pergunta {
                 "id=" + id +
                 ", textoPergunta='" + textoPergunta + '\'' +
                 ", subjetiva=" + subjetiva +
-                ", respostaFuncionario=" + respostaFuncionario +
                 '}';
     }
 
@@ -70,19 +72,19 @@ public class Pergunta {
         this.subjetiva = subjetiva;
     }
 
-    public RespostaFuncionario getRespostaFuncionario() {
-        return respostaFuncionario;
-    }
-
-    public void setRespostaFuncionario(RespostaFuncionario respostaFuncionario) {
-        this.respostaFuncionario = respostaFuncionario;
-    }
-
     public List<Resposta> getRespostas() {
         return respostas;
     }
 
     public void setRespostas(List<Resposta> respostas) {
         this.respostas = respostas;
+    }
+
+    public Formulario getFormulario() {
+        return formulario;
+    }
+
+    public void setFormulario(Formulario formulario) {
+        this.formulario = formulario;
     }
 }
