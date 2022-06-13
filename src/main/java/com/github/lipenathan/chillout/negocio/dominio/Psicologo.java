@@ -12,6 +12,7 @@ import static com.github.lipenathan.flynn.validador.Validador.validarCrm;
 public class Psicologo {
 
     @Id
+    @Column(name = "PSICOLOGO_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String crm;

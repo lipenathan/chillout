@@ -6,13 +6,13 @@ import com.github.lipenathan.chillout.negocio.dominio.Psicologo;
 import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroPsicologo;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 
 @ViewScoped
-@ManagedBean
+@Named
 public class CadastroPsicologoController implements Serializable {
 
     private Psicologo psicologo = new Psicologo();

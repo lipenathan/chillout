@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.Date;
 import java.time.LocalDate;
 
-import static com.github.lipenathan.chillout.negocio.dominio.Papel.FUNCONARIO;
+import static com.github.lipenathan.chillout.negocio.dominio.Papel.FUNCIONARIO;
 
 public class TesteRepositorioUsuario {
 
@@ -37,7 +37,7 @@ public class TesteRepositorioUsuario {
         funcionario.setNome("Usuario Joao");
         funcionario.setSobrenome("da Silva");
         funcionario.setCargo("Gerente");
-        funcionario.setPapel(FUNCONARIO);
+        funcionario.setPapel(FUNCIONARIO);
         funcionario.setCpf("00011122255");
         funcionario.setDataNascimento(Date.valueOf(LocalDate.of(1996, 12, 28)));
         funcionario.setDataContratacao(Date.valueOf(LocalDate.of(2022, 01, 02)));
@@ -64,7 +64,7 @@ public class TesteRepositorioUsuario {
         funcionario.setNome("Usuario Joao");
         funcionario.setSobrenome("da Silva");
         funcionario.setCargo("Gerente");
-        funcionario.setPapel(FUNCONARIO);
+        funcionario.setPapel(FUNCIONARIO);
         funcionario.setCpf("00011122255");
         funcionario.setDataNascimento(Date.valueOf(LocalDate.of(1996, 12, 28)));
         funcionario.setDataContratacao(Date.valueOf(LocalDate.of(2022, 01, 02)));

@@ -1,16 +1,18 @@
 package com.github.lipenathan.chillout.controlador;
 
-import com.github.lipenathan.chillout.negocio.dominio.*;
+import com.github.lipenathan.chillout.negocio.dominio.Endereco;
+import com.github.lipenathan.chillout.negocio.dominio.Funcionario;
+import com.github.lipenathan.chillout.negocio.dominio.Papel;
 import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroFuncionario;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 
 @ViewScoped
-@ManagedBean
+@Named
 public class CadastroFuncionarioController implements Serializable {
 
     private Funcionario funcionario = new Funcionario();

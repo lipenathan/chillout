@@ -4,10 +4,10 @@ import com.github.lipenathan.chillout.negocio.dominio.*;
 import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroFormulario;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @ViewScoped
-@ManagedBean
+@Named
 public class CadastroFomularioController extends AbstractFormulario implements Serializable {
 
     private Psicologo psicologo = new Psicologo(1, "CRM01254/PR");

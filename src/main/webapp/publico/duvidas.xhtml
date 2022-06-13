@@ -7,10 +7,10 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
-<ui:composition template="_template.xhtml">
+<ui:composition template="../privado/_template.xhtml">
     <ui:define name="conteudo">
         <h2 class="text-center mt-5" style="font-weight: 600;">Dúvidas</h2><br/><br/>
-        <img src="resources/imagens/bonecos_duvidas.png" class="container mx-auto d-block w-50 mt-5"/>
+        <img src="../resources/imagens/bonecos_duvidas.png" class="container mx-auto d-block w-50 mt-5"/>
         <article class="container-sm mt-5 float-center">
             <h3 class="text-center " style="margin-top:200px">Chillout para a<br/> empresa</h3><br/>
 
@@ -45,9 +45,9 @@
             </P>
 
         </article>
-        <footer class="row " style="height:630px; margin-bottom:100px">
+        <div class="row " style="height:630px; margin-bottom:100px">
             <div id="div_pai-footer">
-                <img id="img_mental+health" src="resources/imagens/saude_mental.png"
+                <img id="img_mental+health" src="../resources/imagens/saude_mental.png"
                      class=" float-end " style="width:600px "/>
 
                 <div id="div_footer" class="border container  rounded-4 col-4">
@@ -58,10 +58,7 @@
             </div>
             <div style="margin-top:100px">
             </div>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-                crossorigin="anonymous"/>
+        </div>
     </ui:define>
 </ui:composition>
 </html>

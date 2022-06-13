@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head/>
+<ui:composition template="../privado/_template.xhtml">
+    <ui:define name="conteudo">
+        <h:messages/>
+        <div class="titulo_pagina">
+            <h1>Login</h1>
+        </div>
+        <div class="conteudo-login text-center">
+            <main class="form-signin w-100 m-auto">
+                <h:form>
+                    <img id="img_logo" class="mb-4" src="../resources/imagens/chillout_logo.png" alt="" width="72"
+                         height="57"/>
+                    <h1 class="h3 mb-3 fw-normal">Efetuar Login</h1>
+
+                    <div class="form-floating">
+<!--                        <h:outputLabel for="email" value="E-mail" styleClass="logar-label"/>-->
+                        <h:inputText id="floatingInput" value="#{loginController.usuario.email}">
+                            <f:passThroughAttribute name="type" value="email"/>
+                            <f:passThroughAttribute name="class" value="form-control"/>
+                        </h:inputText>
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating">
+<!--                        <h:outputLabel for="senha" value="Senha" styleClass="logar-label"/>-->
+                        <h:inputText id="floatingPassword" value="#{loginController.usuario.senha}">
+                            <f:passThroughAttribute name="type" value="password"/>
+                            <f:passThroughAttribute name="class" value="form-control"/>
+                        </h:inputText>
+                        <label for="floatingPassword">Password</label>
+                    </div>
+<!--                    <button class="w-100 btn btn-lg btn-primary logar" type="submit">Logar</button>-->
+                    <h:commandButton action="#{loginController.logar()}" value="Logar">
+                        <f:passThroughAttribute name="class" value="w-100 btn btn-lg btn-primary logar"/>
+                    </h:commandButton>
+                </h:form>
+            </main>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

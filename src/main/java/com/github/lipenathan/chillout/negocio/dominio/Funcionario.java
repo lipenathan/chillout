@@ -8,12 +8,10 @@ import java.util.Date;
 import static javax.persistence.CascadeType.PERSIST;
 
 @Entity
-@AttributeOverrides({
-        @AttributeOverride(name="USUARIO_ID", column=@Column(name="FUNCIONARIO_ID"))
-})
 public class Funcionario {
 
     @Id
+    @Column(name = "FUNCIONARIO_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "DATA_CONTRATACAO")
@@ -23,10 +21,10 @@ public class Funcionario {
     @OneToOne(cascade = PERSIST)
     @JoinColumn(name = "HISTORICO_SAUDE_ID")
     private HistoricoSaude historicoSaude;
-    @OneToOne(cascade = PERSIST)
+    @OneToOne(cascade = PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "USUARIO_ID")
     private Usuario usuario = new Usuario();
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "EMPRESA_ID")
     private Empresa empresa;
 
@@ -49,6 +47,14 @@ public class Funcionario {
         if (dataContratacao == null) throw NegocioException.DATA_CONTRATACAO_INVALIDA;
         if (cargo == null || cargo.isEmpty()) throw NegocioException.CARGO_INVALIDO;
         if (setor == null || setor.isEmpty()) throw NegocioException.SETOR_INVALIDO;
+    }
+
+    public long getIdUsuario() {
+        return usuario.id;
+    }
+
+    public long getIdEmpresaFuncionario() {
+        return empresa.getId();
     }
 
     public Usuario getUsuario() {

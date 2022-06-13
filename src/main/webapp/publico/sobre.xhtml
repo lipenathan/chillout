@@ -7,27 +7,13 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
 >
-<h:head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-          crossorigin="anonymous"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-            crossorigin="anonymous"
-            type="javascript"></script>
-    <link
-            rel="stylesheet"
-            type="text/css"
-            href="resources/css/style.css"
-    />
-</h:head>
-<ui:composition template="_template.xhtml">
+<h:head/>
+<ui:composition template="../privado/_template.xhtml">
     <ui:define name="conteudo">
         <article class="container-sm mt-5 float-center">
-            <h2 class="text-center" style="font-weight: 600;">Chillout</h2><br/><br/>
+            <div class="titulo_pagina">
+                <h1>Chillout</h1>
+            </div>
             <h3 style="font-weight:500;">O que é o chillout?</h3><br/>
 
             <p>O Chillout é uma ferramenta focada na qualidade do ambiente corporativo,
@@ -80,7 +66,7 @@
         </article>
 
         <section class="container container-fluid " style="margin-top:400px; margin-bottom:100px">
-            <img class="mx-auto d-block" src="resources/imagens/imagem_msg.png"/>
+            <img class="mx-auto d-block" src="../resources/imagens/imagem_msg.png"/>
             <p class="text-center" style="font-weight: 600; font-size:33px;
         font-family:arial">Perguntas Frenquentes</p>
         </section>
@@ -176,20 +162,19 @@
             </div>
         </section>
         <div class="row mt-0" style="height:630px; margin-bottom:100px">
-            <div id="div_pai-footer" style="margin-top:100px" >
-                <img id="img_mental+health" src="resources/imagens/saude_mental.png"
-                     class=" float-end "  style="width:600px "/>
+            <div id="div_pai-footer" style="margin-top:100px">
+                <img id="img_mental+health" src="../resources/imagens/saude_mental.png"
+                     class=" float-end " style="width:600px "/>
 
                 <div id="div_footer" class="border container  rounded-4 col-4">
                     <div id="vamos-comecar">Vamos Começar!</div>
                     <button id="btn_logar" type="button" class="btn" style="margin-left:65px">Logar</button>
-                    <button id="btn_cadastrar_empresa" type="button" class="btn" style="margin-left:65px">Cadastrar Empresa</button>
+                    <button id="btn_cadastrar_empresa" type="button" class="btn"
+                            style="margin-left:65px">Cadastrar Empresa
+                    </button>
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-                crossorigin="anonymous"></script>
     </ui:define>
 </ui:composition>
 </html>

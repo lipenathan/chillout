@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head/>
+<ui:composition template="_template.xhtml">
+    <ui:define name="conteudo">
+        <h:form>
+            <h:dataTable value="#{formularioController.formulario}" var="form">
+                <h:column>
+                    <f:facet name="Título"/>
+                    <h:outputText value="#{form.tituloFormulario}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="Descrição Formulário"/>
+                    <h:outputText value="#{form.descricaoFormulario}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

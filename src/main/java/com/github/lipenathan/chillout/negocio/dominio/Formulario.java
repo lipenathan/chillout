@@ -28,7 +28,7 @@ public class Formulario {
     @OneToOne
     @JoinColumn(name = "PSICOLOGO_ID")
     private Psicologo psicologo;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "EMPRESA_ID")
     private Empresa empresa;
 
@@ -45,6 +45,10 @@ public class Formulario {
 
     public void relacionarPerguntas() {
         perguntas.forEach(p -> p.setFormulario(this) );
+    }
+
+    public long getIdEmpresaFormulario() {
+        return empresa == null? 0 : empresa.getId();
     }
 
     @Override

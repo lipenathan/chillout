@@ -5,16 +5,16 @@ import com.github.lipenathan.chillout.negocio.dominio.Endereco;
 import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroEmpresa;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
 @ViewScoped
-@ManagedBean
+@Named
 public class CadastroEmpresaController implements Serializable {
 
     private Empresa empresa = new Empresa();

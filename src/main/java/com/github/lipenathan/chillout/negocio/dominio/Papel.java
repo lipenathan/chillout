@@ -1,12 +1,12 @@
 package com.github.lipenathan.chillout.negocio.dominio;
 
 public enum Papel {
-    FUNCONARIO, PSICOLOGO, GESTOR;
+    FUNCIONARIO, PSICOLOGO, GESTOR;
 
     @Override
     public String toString() {
         switch (this) {
-            case FUNCONARIO:
+            case FUNCIONARIO:
                 return "Funcionário";
             case PSICOLOGO:
                 return "Psicólogo";
