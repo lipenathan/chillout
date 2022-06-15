@@ -10,7 +10,7 @@ public class RespostaFuncionario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RESPOSTA_FUNCIONARIO_ID")
     private long id;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "RESPOSTA_ID")
     private Resposta resposta;
     @Column(name = "TEXTO_RESPOSTA_SUBJETIVA")

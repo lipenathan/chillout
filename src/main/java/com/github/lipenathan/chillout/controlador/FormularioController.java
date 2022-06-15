@@ -1,16 +1,16 @@
 package com.github.lipenathan.chillout.controlador;
 
-import com.github.lipenathan.chillout.negocio.dominio.Formulario;
-import com.github.lipenathan.chillout.negocio.dominio.FormularioRespondido;
-import com.github.lipenathan.chillout.negocio.dominio.Funcionario;
-import com.github.lipenathan.chillout.negocio.dominio.RespostaFuncionario;
+import com.github.lipenathan.chillout.negocio.dominio.*;
 import com.github.lipenathan.chillout.negocio.processos.ProcessoFormulario;
 import com.github.lipenathan.chillout.negocio.processos.ProcessoFuncionario;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @ViewScoped
 @Named
@@ -30,8 +30,11 @@ public class FormularioController implements Serializable {
 
     private RespostaFuncionario respostaSubjetiva = new RespostaFuncionario();
 
+    private FacesContext facesContext;
+
     @Inject
     public FormularioController(LoginController login) {
+        facesContext = FacesContext.getCurrentInstance();
         this.login = login;
         processoFormulario = new ProcessoFormulario();
         processoFuncionario = new ProcessoFuncionario();
@@ -39,11 +42,35 @@ public class FormularioController implements Serializable {
         buscarFormulario();
     }
 
+    public String responderFormulario() {
+        try {
+            validarRespostas();
+            setarRespostas();
+            formularioRespondido.setFormulario(formulario);
+            formularioRespondido.setFuncionario(funcionario);
+            formularioRespondido.setDataResposta(LocalDate.now());
+            processoFormulario.responderFormulario(formularioRespondido);
+            return "/publico/home.xhtml?faces-redirect=true";
+        } catch (Exception e) {
+            facesContext.addMessage(null, new FacesMessage(e.getMessage()));
+        }
+        return null;
+    }
 
+    private void validarRespostas() throws Exception {
+        for (Pergunta p : formulario.getPerguntas()) {
+            if ((!p.isSubjetiva() && p.getIdRespostaSelecionada() <= 0)
+                    || (respostaSubjetiva.getTextoResposta() == null || respostaSubjetiva.getTextoResposta().isEmpty())) {
+                throw new Exception("Todas as perguntas precisam ser preenchidas");
+            }
+        }
+    }
 
     private void setarRespostas() {
-        formulario.getPerguntas().forEach( pergunta -> {
+        formulario.getPerguntas().forEach(pergunta -> {
             if (pergunta.isSubjetiva()) {
+                respostaSubjetiva.setResposta(pergunta.getRespostas().get(0));
+                respostaSubjetiva.setFormularioRespondido(formularioRespondido);
                 formularioRespondido.getRespostasFuncionario().add(respostaSubjetiva);
             } else {
                 pergunta.getRespostas().forEach(resposta -> {

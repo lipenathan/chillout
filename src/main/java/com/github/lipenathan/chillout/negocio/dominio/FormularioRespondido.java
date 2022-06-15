@@ -24,7 +24,7 @@ public class FormularioRespondido {
     @JoinColumn(name = "FUNCIONARIO_ID")
     private Funcionario funcionario;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "formularioRespondido")
     private List<RespostaFuncionario> respostasFuncionario = new ArrayList<>();
 
     public void vincularRespostas() {
