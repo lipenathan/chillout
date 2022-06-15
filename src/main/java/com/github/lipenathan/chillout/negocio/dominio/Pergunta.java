@@ -19,15 +19,17 @@ public class Pergunta {
     private String textoPergunta;
     @Column(name = "PERGUNTA_SUBJETIVA")
     private boolean subjetiva;
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "id")
-    private List<Resposta> respostas;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "pergunta", fetch = FetchType.EAGER)
+    private List<Resposta> respostas = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "FORMULARIO_ID")
     private Formulario formulario;
+    @Transient
+    private long idRespostaSelecionada;
 
     public Pergunta(boolean subjetiva) {
         this.subjetiva = subjetiva;
-        this.respostas = new ArrayList<>();
+        this.respostas.add(new Resposta(0, this, "SUBJETIVA"));
     }
 
     public Pergunta() {
@@ -86,5 +88,13 @@ public class Pergunta {
 
     public void setFormulario(Formulario formulario) {
         this.formulario = formulario;
+    }
+
+    public long getIdRespostaSelecionada() {
+        return idRespostaSelecionada;
+    }
+
+    public void setIdRespostaSelecionada(long idRespostaSelecionada) {
+        this.idRespostaSelecionada = idRespostaSelecionada;
     }
 }

@@ -13,6 +13,15 @@
               integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
               crossorigin="anonymous"/>
         <link rel="stylesheet" href="../resources/css/style.css"/>
+        <script src="https://code.jquery.com/jquery-1.12.0.js"/>
+        <script>
+            $(document).ready(function(){
+                $('a').click(function(){
+                    $('a').removeClass("active");
+                    $(this).addClass("active");
+                });
+            });
+        </script>
     </h:head>
     <div id="cabecalho" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -21,14 +30,15 @@
                     <img id="img_logo" src="../resources/imagens/chillout_logo.png" alt="Chillout"/>
                 </a>
             </li>
-            <li><a href="../publico/home.xhtml" class="nav-link px-2 text-secondary">Home</a></li>
-            <li><a href="../publico/sobre.xhtml" class="nav-link px-2 text-white">Sobre</a></li>
-            <li><a href="../publico/duvidas.xhtml" class="nav-link px-2 text-white">Dúvidas</a></li>
-            <li><a href="../publico/contato.xhtml" class="nav-link px-2 text-white">Contato</a></li>
+            <li><a href="../publico/home.xhtml" class="nav-link">Home</a></li>
+            <li><a href="../publico/sobre.xhtml" class="nav-link">Sobre</a></li>
+            <li><a href="../publico/duvidas.xhtml" class="nav-link">Dúvidas</a></li>
+            <li><a href="../publico/contato.xhtml" class="nav-link ">Contato</a></li>
         </ul>
         <div class="text-end">
-            <button id="bt_logar" type="button" class="btn btn-outline-light me-2"
-                    onclick="window.location.href='login.xhtml'">Logar</button>
+            <button type="button" class="btn btn-outline-light me-2 bt_logar"
+                    onclick="window.location.href='login.xhtml'">Logar
+            </button>
         </div>
     </div>
 
@@ -37,30 +47,27 @@
     </div>
 
     <footer>
-        <div class="rodape">
-            <div class="pp">
-                <p>2021@Chillout</p>
-                <p>All Rigths reserved.</p>
-            </div>
-
-            <div class="nav-footer">
-                <a href="" class="link-dark">Home</a>
-                <a href="" class="link-dark">Sobre</a>
-                <a href="" class="link-dark">Dúvidas</a>
-            </div>
-            <div class="nav-footer">
-                <a href="" class="link-dark">Contato</a>
-                <a href="" class="link-dark">Facebook</a>
-                <a href="" class="link-dark">Instagram</a>
-            </div>
-            <div class="nav-footer">
-                <a href="" class="link-dark">Twitter</a>
-                <a href="" class="link-dark">Linkedin</a>
-                <a href="" class="link-dark">Privacy Policy</a>
-            </div>
-            <div class="nav-footer">
-                <a href="" class="link-dark">Terms Of Service</a>
-            </div>
+        <div class="pp">
+            <p>2021@Chillout</p>
+            <p>All Rigths reserved.</p>
+        </div>
+        <div class="nav-footer !important">
+            <a href="" class="link-dark">Home</a>
+            <a href="" class="link-dark">Sobre</a>
+            <a href="" class="link-dark">Dúvidas</a>
+        </div>
+        <div class="nav-footer !important">
+            <a href="" class="link-dark">Contato</a>
+            <a href="" class="link-dark">Facebook</a>
+            <a href="" class="link-dark">Instagram</a>
+        </div>
+        <div class="nav-footer !important">
+            <a href="" class="link-dark">Twitter</a>
+            <a href="" class="link-dark">Linkedin</a>
+            <a href="" class="link-dark">Privacy Policy</a>
+        </div>
+        <div class="nav-footer">
+            <a href="" class="link-dark">Terms Of Service</a>
         </div>
     </footer>
     <!--suppress CheckEmptyScriptTag -->

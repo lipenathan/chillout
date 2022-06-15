@@ -15,6 +15,7 @@
         <class>com.github.lipenathan.chillout.negocio.dominio.Pergunta</class>
         <class>com.github.lipenathan.chillout.negocio.dominio.RespostaFuncionario</class>
         <class>com.github.lipenathan.chillout.negocio.dominio.Resposta</class>
+        <class>com.github.lipenathan.chillout.negocio.dominio.FormularioRespondido</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

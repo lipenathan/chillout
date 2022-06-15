@@ -1,7 +1,9 @@
 package com.github.lipenathan.chillout.controlador;
 
 import com.github.lipenathan.chillout.negocio.dominio.Formulario;
+import com.github.lipenathan.chillout.negocio.dominio.FormularioRespondido;
 import com.github.lipenathan.chillout.negocio.dominio.Funcionario;
+import com.github.lipenathan.chillout.negocio.dominio.RespostaFuncionario;
 import com.github.lipenathan.chillout.negocio.processos.ProcessoFormulario;
 import com.github.lipenathan.chillout.negocio.processos.ProcessoFuncionario;
 
@@ -24,6 +26,10 @@ public class FormularioController implements Serializable {
 
     private Funcionario funcionario;
 
+    private FormularioRespondido formularioRespondido = new FormularioRespondido();
+
+    private RespostaFuncionario respostaSubjetiva = new RespostaFuncionario();
+
     @Inject
     public FormularioController(LoginController login) {
         this.login = login;
@@ -31,6 +37,22 @@ public class FormularioController implements Serializable {
         processoFuncionario = new ProcessoFuncionario();
         buscarFuncionario();
         buscarFormulario();
+    }
+
+
+
+    private void setarRespostas() {
+        formulario.getPerguntas().forEach( pergunta -> {
+            if (pergunta.isSubjetiva()) {
+                formularioRespondido.getRespostasFuncionario().add(respostaSubjetiva);
+            } else {
+                pergunta.getRespostas().forEach(resposta -> {
+                    if (resposta.getId() == pergunta.getIdRespostaSelecionada()) {
+                        formularioRespondido.getRespostasFuncionario().add(new RespostaFuncionario(resposta, formularioRespondido));
+                    }
+                });
+            }
+        });
     }
 
     private void buscarFormulario() {
@@ -47,5 +69,21 @@ public class FormularioController implements Serializable {
 
     public void setFormulario(Formulario formulario) {
         this.formulario = formulario;
+    }
+
+    public FormularioRespondido getFormularioRespondido() {
+        return formularioRespondido;
+    }
+
+    public void setFormularioRespondido(FormularioRespondido formularioRespondido) {
+        this.formularioRespondido = formularioRespondido;
+    }
+
+    public RespostaFuncionario getRespostaSubjetiva() {
+        return respostaSubjetiva;
+    }
+
+    public void setRespostaSubjetiva(RespostaFuncionario respostaSubjetiva) {
+        this.respostaSubjetiva = respostaSubjetiva;
     }
 }

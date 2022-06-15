@@ -4,22 +4,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head/>
 <ui:composition template="_template.xhtml">
     <ui:define name="conteudo">
-        <h:form>
-            <h:dataTable value="#{formularioController.formulario}" var="form">
-                <h:column>
-                    <f:facet name="Título"/>
-                    <h:outputText value="#{form.tituloFormulario}"/>
-                </h:column>
-                <h:column>
-                    <f:facet name="Descrição Formulário"/>
-                    <h:outputText value="#{form.descricaoFormulario}"/>
-                </h:column>
-            </h:dataTable>
-        </h:form>
+        <main>
+            <div class="container formulario">
+                <h:form>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h3 class="formulario-cabecalho">Título Formulário</h3>
+                            <h:outputText id="titulo" value="#{formularioController.formulario.tituloFormulario}"/>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h3 class="formulario-cabecalho">Descrição Formulário</h3>
+                            <h:outputText value="#{formularioController.formulario.descricaoFormulario}"/>
+                        </div>
+                    </div>
+                    <div class="formulario-perguntas">
+                        <c:forEach items="#{formularioController.formulario.perguntas}" var="pergunta">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <p class="formulario-pergunta">
+                                        <h:outputText value="#{pergunta.textoPergunta}"/>
+                                    </p><br/>
+                                    <c:if test="#{!pergunta.subjetiva}">
+                                        <h:selectOneRadio value="#{pergunta.idRespostaSelecionada}">
+                                            <f:selectItem itemLabel="#{pergunta.respostas.get(0).textoResposta}"
+                                                           itemValue="#{pergunta.respostas.get(0).id}"/>
+                                            <f:selectItem itemLabel="#{pergunta.respostas.get(1).textoResposta}"
+                                                          itemValue="#{pergunta.respostas.get(1).id}"/>
+                                            <f:selectItem itemLabel="#{pergunta.respostas.get(2).textoResposta}"
+                                                          itemValue="#{pergunta.respostas.get(2).id}"/>
+                                            <f:selectItem itemLabel="#{pergunta.respostas.get(3).textoResposta}"
+                                                          itemValue="#{pergunta.respostas.get(3).id}"/>
+                                            <f:selectItem itemLabel="#{pergunta.respostas.get(4).textoResposta}"
+                                                          itemValue="#{pergunta.respostas.get(4).id}"/>
+                                        </h:selectOneRadio>
+                                    </c:if>
+                                    <c:if test="#{pergunta.subjetiva}">
+                                        <h:inputTextarea
+                                                value="#{formularioController.respostaSubjetiva.textoResposta}"/>
+                                    </c:if>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                    <h:commandButton value="RESPONDER" action="#{formularioController.setarRespostas()}"/>
+                </h:form>
+            </div>
+        </main>
     </ui:define>
 </ui:composition>
 </html>

@@ -21,7 +21,7 @@ public class Formulario {
     private String descricaoFormulario;
     @Column(name = "QTD_PERGUNTA")
     private int quantidadePerguntas;
-    @OneToMany(cascade = PERSIST, mappedBy = "id")
+    @OneToMany(cascade = PERSIST, mappedBy = "formulario", fetch = FetchType.EAGER)
     private List<Pergunta> perguntas;
     @Column(name = "DATA_CRIACAO")
     private Date dataCricao;

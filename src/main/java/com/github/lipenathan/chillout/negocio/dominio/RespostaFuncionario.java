@@ -4,17 +4,29 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 
-@Entity
+@Entity(name = "RESPOSTA_FUNCIONARIO")
 public class RespostaFuncionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "RESPOSTA_FUNCIONARIO_ID")
     private long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "RESPOSTA_ID")
     private Resposta resposta;
     @Column(name = "TEXTO_RESPOSTA_SUBJETIVA")
-    private String respostaSubjetiva;
+    private String textoResposta;
+    @ManyToOne
+    @JoinColumn(name = "FORMULARIO_RESPONDIDO_ID")
+    private FormularioRespondido formularioRespondido;
+
+    public RespostaFuncionario() {
+    }
+
+    public RespostaFuncionario(Resposta resposta, FormularioRespondido formularioRespondido) {
+        this.resposta = resposta;
+        this.formularioRespondido = formularioRespondido;
+        this.textoResposta = resposta.getTextoResposta();
+    }
 
     public long getId() {
         return id;
@@ -28,11 +40,19 @@ public class RespostaFuncionario implements Serializable {
         this.resposta = resposta;
     }
 
-    public String getRespostaSubjetiva() {
-        return respostaSubjetiva;
+    public String getTextoResposta() {
+        return textoResposta;
     }
 
-    public void setRespostaSubjetiva(String respostaSubjetiva) {
-        this.respostaSubjetiva = respostaSubjetiva;
+    public void setTextoResposta(String textoResposta) {
+        this.textoResposta = textoResposta;
+    }
+
+    public FormularioRespondido getFormularioRespondido() {
+        return formularioRespondido;
+    }
+
+    public void setFormularioRespondido(FormularioRespondido formularioRespondido) {
+        this.formularioRespondido = formularioRespondido;
     }
 }

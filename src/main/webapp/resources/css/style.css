@@ -31,6 +31,34 @@ label {
     margin: 15px 0;
 }
 
+header{
+    position: absolute;
+    background-color: gainsboro;
+    height: 40px;
+    width: 100%;
+    box-shadow: 0px 0px 10px black;
+    z-index: 1;
+}
+
+footer {
+    background-color: #54de88;
+    display: flex;
+    min-height: 100px;
+    width: 100%;
+    border-top: 0.4px solid #FFF2E7;
+    gap: 100px;
+    bottom: 0;
+    justify-content: center;
+    padding:0 20px;
+}
+
+main {
+    min-height: 100vh;
+    min-height: -webkit-calc(100vh - 100px);
+    min-height:    -moz-calc(100vh - 100px);
+    min-height:         calc(100vh - 100px);
+}
+
 /* Classes Personalizadas */
 .g-5{
     margin-top: 10px;
@@ -138,7 +166,7 @@ label {
     justify-content: center;
 }
 
-.formulario {
+.contato-form {
     margin-bottom: 200px;
     display: flex;
     flex-direction: column;
@@ -238,6 +266,41 @@ label {
 .logar {
     margin-top: 30px;
 }
+
+.formulario {
+    margin-top: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario-cabecalho {
+    font-weight: bold !important;
+    align-content: center;
+    justify-content: center;
+}
+
+.formulario-pergunta {
+    font-size: 26px;
+    margin-top: 10px;
+    page-break-after: always;
+
+}
+
+.formulario-perguntas {
+    margin-top: 20px;
+}
+
+.bt_logar {
+    background: #4D7C8A;
+    color: white;
+}
+
+.nav-link {
+    margin: 0 10px;
+}
+
 /* Componentes personalizados */
 #img_logo {
     width: 120px;
@@ -248,11 +311,8 @@ label {
     font-family: Inter, Arial, sans-serif;
     color: black;
     background: #D8DDEF;
-}
-
-#bt_logar {
-    background: #4D7C8A;
-    color: white;
+    padding: 10px;
+    font-size: 20px;
 }
 
 #bt_formulario{
@@ -287,7 +347,7 @@ label {
 }
 
 #div_pai-footer{
-    margin-top:400px;
+    margin-top:200px;
 }
 
 #vamos-comecar{
@@ -302,4 +362,21 @@ label {
     margin-left:30px;
     margin-top:50px;
     margin-bottom:100px;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover, a:focus{
+    color: red;
+    text-decoration: none;
+    outline: none;
+}
+
+.active{
+    font-size: 30px;
+    color: red;
+    border-bottom: 5px solid red;
 }
