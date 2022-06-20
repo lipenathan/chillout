@@ -3,6 +3,9 @@ package com.github.lipenathan.chillout.negocio.dominio;
 import com.github.lipenathan.chillout.negocio.exception.NegocioException;
 
 import javax.persistence.*;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 import static javax.persistence.CascadeType.PERSIST;
@@ -31,13 +34,23 @@ public class Funcionario {
     public Funcionario() {
     }
 
+    public void criptografar() throws NoSuchAlgorithmException {
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        byte stream[] = messageDigest.digest(getSenha().getBytes(StandardCharsets.UTF_8));
+        String senha = new String(stream, StandardCharsets.UTF_8);
+        this.setSenha(senha);
+    }
+
     @Override
     public String toString() {
         return "Funcionario{" +
-                "dataContratacao=" + dataContratacao +
+                "id=" + id +
+                ", dataContratacao=" + dataContratacao +
                 ", cargo='" + cargo + '\'' +
                 ", setor='" + setor + '\'' +
                 ", historicoSaude=" + historicoSaude +
+                ", usuario=" + usuario +
+                ", empresa=" + empresa +
                 '}';
     }
 

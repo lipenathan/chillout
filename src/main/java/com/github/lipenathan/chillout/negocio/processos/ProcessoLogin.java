@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ProcessoLogin {
 
-    private Repositorio<Usuario> repositorioUsuario;
+    private final Repositorio<Usuario> repositorioUsuario;
 
     public ProcessoLogin() {
         this.repositorioUsuario = new Repositorio<>(Usuario.class);

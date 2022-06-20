@@ -1,6 +1,9 @@
 package com.github.lipenathan.chillout.servicos.repositorio;
 
-import com.github.lipenathan.chillout.negocio.dominio.*;
+import com.github.lipenathan.chillout.negocio.dominio.Endereco;
+import com.github.lipenathan.chillout.negocio.dominio.Funcionario;
+import com.github.lipenathan.chillout.negocio.dominio.HistoricoSaude;
+import com.github.lipenathan.chillout.negocio.dominio.Psicologo;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
@@ -42,12 +45,7 @@ public class TesteRepositorioUsuario {
         funcionario.setDataNascimento(Date.valueOf(LocalDate.of(1996, 12, 28)));
         funcionario.setDataContratacao(Date.valueOf(LocalDate.of(2022, 01, 02)));
         Endereco endereco = new Endereco();
-        endereco.setRua("rua do funcionario teste");
-        endereco.setBairro("bairro exemplo");
-        endereco.setCidade("Londrina");
-        endereco.setEstado("PR");
-        endereco.setPais("Brasil");
-        endereco.setComplemento("Prédio 3º andar");
+        endereco.setId(3);
         funcionario.setEnderecoUsuario(endereco);
         HistoricoSaude historicoSaude = new HistoricoSaude();
         historicoSaude.setDescricaoHistorico("Tive alguns problemas de saúde no último semestre");
@@ -71,4 +69,6 @@ public class TesteRepositorioUsuario {
         funcionario.getUsuario().calcularIdade();
         System.out.println(funcionario.getIdade());
     }
+
+    
 }

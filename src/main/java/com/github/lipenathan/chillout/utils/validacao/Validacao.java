@@ -1,4 +1,4 @@
-package com.github.lipenathan.chillout.utils;
+package com.github.lipenathan.chillout.utils.validacao;
 
 public class Validacao {
     public static void validarCampoObrigatorio(String campo, Object o) throws Exception {

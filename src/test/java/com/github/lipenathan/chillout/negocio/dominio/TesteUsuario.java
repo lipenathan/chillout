@@ -3,6 +3,8 @@ package com.github.lipenathan.chillout.negocio.dominio;
 import com.github.lipenathan.chillout.negocio.exception.NegocioException;
 import org.junit.jupiter.api.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Date;
@@ -29,6 +31,17 @@ public class TesteUsuario {
             p.validar();
         } catch (NegocioException e) {
             System.out.printf(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testeData() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            Date data = sdf.parse("20-12-1985");
+            System.out.println(data);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 }

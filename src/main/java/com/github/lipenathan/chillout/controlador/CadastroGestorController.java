@@ -1,9 +1,10 @@
 package com.github.lipenathan.chillout.controlador;
 
+import com.github.lipenathan.chillout.negocio.dominio.Empresa;
 import com.github.lipenathan.chillout.negocio.dominio.Endereco;
 import com.github.lipenathan.chillout.negocio.dominio.Funcionario;
 import com.github.lipenathan.chillout.negocio.dominio.Papel;
-import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroFuncionario;
+import com.github.lipenathan.chillout.negocio.processos.ProcessosCadastroGestor;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -13,32 +14,36 @@ import java.io.Serializable;
 
 @ViewScoped
 @Named
-public class CadastroFuncionarioController implements Serializable {
+public class CadastroGestorController implements Serializable {
 
     private Funcionario funcionario = new Funcionario();
 
     private Endereco endereco = new Endereco();
 
+    private String cnpj;
+
     private String senha1;
 
     private String senha2;
 
-    private final ProcessosCadastroFuncionario processosCadastroFuncionario = new ProcessosCadastroFuncionario();
+    private final ProcessosCadastroGestor processosCadastroGestor = new ProcessosCadastroGestor();
 
-    private FacesContext context;
-
-    public void cadastrar() {
-        context = FacesContext.getCurrentInstance();
+    public String cadastrar() {
+        String navegacao = "";
+        FacesContext context = FacesContext.getCurrentInstance();
         try {
             validarSenhas();
             funcionario.setEnderecoUsuario(endereco);
             funcionario.setPapel(Papel.GESTOR);
-            processosCadastroFuncionario.cadastrar(funcionario);
+            validarEmpresa();
+            processosCadastroGestor.cadastrar(funcionario);
             limparCampos();
             context.addMessage(null, new FacesMessage("Usuário cadastrado com sucesso"));
+            navegacao = "/privado/gestor.xhtml?faces-redirect=true";
         } catch (Exception e) {
             context.addMessage(null, new FacesMessage(e.getMessage()));
         }
+        return navegacao;
     }
 
     // métodos de apoio privados
@@ -53,6 +58,16 @@ public class CadastroFuncionarioController implements Serializable {
     private void limparCampos() {
         this.funcionario = new Funcionario();
         this.endereco = new Endereco();
+        cnpj = "";
+    }
+
+    private void validarEmpresa() throws Exception {
+        Empresa e = processosCadastroGestor.buscarEmpresaPeloCnpj(cnpj);
+        if (e == null) {
+            throw new Exception("Empresa não encontrada.\nFaça o cadastro empresarial primeiro");
+        } else {
+            funcionario.setEmpresa(e);
+        }
     }
 
     public Endereco getEndereco() {
@@ -85,5 +100,13 @@ public class CadastroFuncionarioController implements Serializable {
 
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-import static com.github.lipenathan.chillout.utils.Validacao.validarCampoObrigatorio;
+import static com.github.lipenathan.chillout.utils.validacao.Validacao.validarCampoObrigatorio;
 import static javax.persistence.CascadeType.PERSIST;
 
 @Entity

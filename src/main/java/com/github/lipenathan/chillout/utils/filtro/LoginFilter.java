@@ -1,4 +1,4 @@
-package com.github.lipenathan.chillout.utils.filter;
+package com.github.lipenathan.chillout.utils.filtro;
 
 import com.github.lipenathan.chillout.controlador.LoginController;
 

@@ -22,18 +22,20 @@ public class CadastroEmpresaController implements Serializable {
     private String senha1;
     private String senha2;
     private final ProcessosCadastroEmpresa processosCadastroEmpresa = new ProcessosCadastroEmpresa();
-    private FacesContext context;
     private List<SelectItem> comboRamos = carregarComboRamos();
 
-    public void cadastrar() {
-        context = FacesContext.getCurrentInstance();
+    public String cadastrar() {
+        String navegacao = "";
+        FacesContext context = FacesContext.getCurrentInstance();
         try {
             empresa.setEnderecoEmpresa(endereco);
             processosCadastroEmpresa.cadastrar(empresa);
             context.addMessage(null, new FacesMessage("Empresa cadastrada com sucesso"));
+            navegacao = "/privado/cadastro_gestor.xhtml?faces-redirect=true";
         } catch (Exception e) {
             context.addMessage(null, new FacesMessage(e.getMessage()));
         }
+        return navegacao;
     }
 
     private List<SelectItem> carregarComboRamos() {

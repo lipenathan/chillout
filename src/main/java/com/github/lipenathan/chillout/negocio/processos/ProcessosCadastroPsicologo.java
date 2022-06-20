@@ -13,6 +13,7 @@ public class ProcessosCadastroPsicologo {
 
     public void cadastrar(Psicologo psicologo) throws Exception {
         psicologo.validar();
+        psicologo.criptografar();
         repositorio.inserir(psicologo);
     }
 }

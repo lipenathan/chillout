@@ -10,30 +10,30 @@
     <ui:define name="conteudo">
         <h:messages/>
         <div class="titulo_pagina">
-            <h1>Cadastro de Funcionário</h1>
+            <h1>Cadastro de Gestor</h1>
         </div>
         <br/>
         <br/>
-        <div>
+        <main>
             <div class="container">
                 <h4 class="mb-3">Dados</h4>
                 <h:form>
                     <div class="row g-5">
                         <div class="col-md-4">
                             <label for="nomefunc" class="form-label">Nome</label>
-                            <h:inputText value="#{cadastroFuncionarioController.funcionario.nome}"
+                            <h:inputText value="#{cadastroGestorController.funcionario.nome}"
                                          styleClass="form-control"
                                          id="nomefunc"/>
                         </div>
                         <div class="col-md-4">
                             <label for="sobrenomefunc" class="form-label">Sobrenome</label>
-                            <h:inputText value="#{cadastroFuncionarioController.funcionario.sobrenome}"
+                            <h:inputText value="#{cadastroGestorController.funcionario.sobrenome}"
                                          styleClass="form-control"
                                          id="sobrenomefunc"/>
                         </div>
                         <div class="col-md-4">
                             <label for="cpffunc" class="form-label">CPF</label>
-                            <h:inputText style="width: 60%" value="#{cadastroFuncionarioController.funcionario.cpf}"
+                            <h:inputText style="width: 60%" value="#{cadastroGestorController.funcionario.cpf}"
                                          styleClass="form-control" id="cpffunc">
                             </h:inputText>
                         </div>
@@ -41,7 +41,7 @@
                     <div class="row g-5">
                         <div class="col-md-4">
                             <label for="datanascfunc" class="form-label">Data de Nascimento</label>
-                            <h:inputText value="#{cadastroFuncionarioController.funcionario.dataNascimento}"
+                            <h:inputText value="#{cadastroGestorController.funcionario.dataNascimento}"
                                          styleClass="form-control"
                                          id="datanascfunc">
                                 <f:convertDateTime pattern="dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
@@ -49,32 +49,34 @@
                         </div>
                         <div class="col-md-4">
                             <label for="emailfunc" class="form-label">E-mail</label>
-                            <h:inputText value="#{cadastroFuncionarioController.funcionario.email}"
+                            <h:inputText value="#{cadastroGestorController.funcionario.email}"
                                          styleClass="form-control"
-                                         id="emailfunc"/>
+                                         id="emailfunc">
+                                <f:passThroughAttribute name="autocomplete" value="off"/>
+                            </h:inputText>
                         </div>
                         <div class="col-md-4">
                             <label for="ruafunc" class="form-label">Rua</label>
-                            <h:inputText value="#{cadastroFuncionarioController.endereco.rua}" styleClass="form-control"
+                            <h:inputText value="#{cadastroGestorController.endereco.rua}" styleClass="form-control"
                                          id="ruafunc"/>
                         </div>
                     </div>
                     <div class="row g-5">
                         <div class="col-md-4">
                             <label for="bairrofunc" class="form-label">Bairro</label>
-                            <h:inputText value="#{cadastroFuncionarioController.endereco.bairro}"
+                            <h:inputText value="#{cadastroGestorController.endereco.bairro}"
                                          styleClass="form-control" id="bairrofunc"/>
                         </div>
                         <div class="col-md-4">
                             <label for="numeroEnderecofunc" class="form-label">Nº Endereço</label>
-                            <h:inputText value="#{cadastroFuncionarioController.endereco.numeroEndereco}"
+                            <h:inputText value="#{cadastroGestorController.endereco.numeroEndereco}"
                                          styleClass="form-control" id="numeroEnderecofunc">
                                 <f:passThroughAttribute name="type" value="number"/>
                             </h:inputText>
                         </div>
                         <div class="col-md-4">
                             <label for="cidadefunc" class="form-label">Cidade</label>
-                            <h:inputText value="#{cadastroFuncionarioController.endereco.cidade}"
+                            <h:inputText value="#{cadastroGestorController.endereco.cidade}"
                                          styleClass="form-control"
                                          id="cidadefunc">
                             </h:inputText>
@@ -83,20 +85,20 @@
                     <div class="row g-5">
                         <div class="col-md-4">
                             <label for="uffunc" class="form-label">UF</label>
-                            <h:inputText value="#{cadastroFuncionarioController.endereco.estado}"
+                            <h:inputText value="#{cadastroGestorController.endereco.estado}"
                                          styleClass="form-control"
                                          id="uffunc" maxlength="2">
                             </h:inputText>
                         </div>
                         <div class="col-md-4">
                             <label for="pais" class="form-label">País</label>
-                            <h:inputText value="#{cadastroFuncionarioController.endereco.pais}"
+                            <h:inputText value="#{cadastroGestorController.endereco.pais}"
                                          styleClass="form-control"
                                          id="pais"/>
                         </div>
                         <div class="col-md-4">
                             <label for="complemento" class="form-label">Complemento</label>
-                            <h:inputText value="#{cadastroFuncionarioController.endereco.complemento}"
+                            <h:inputText value="#{cadastroGestorController.endereco.complemento}"
                                          styleClass="form-control"
                                          id="complemento"/>
                         </div>
@@ -104,19 +106,19 @@
                     <div class="row g-5">
                         <div class="col-md-4">
                             <label for="cargo" class="form-label">Cargo</label>
-                            <h:inputText value="#{cadastroFuncionarioController.funcionario.cargo}"
+                            <h:inputText value="#{cadastroGestorController.funcionario.cargo}"
                                          styleClass="form-control"
                                          id="cargo"/>
                         </div>
                         <div class="col-md-4">
                             <label for="setor" class="form-label">Setor</label>
-                            <h:inputText value="#{cadastroFuncionarioController.funcionario.setor}"
+                            <h:inputText value="#{cadastroGestorController.funcionario.setor}"
                                          styleClass="form-control"
                                          id="setor"/>
                         </div>
                         <div class="col-md-4">
                             <label for="datacontr" class="form-label">Data Contratação</label>
-                            <h:inputText value="#{cadastroFuncionarioController.funcionario.dataContratacao}"
+                            <h:inputText value="#{cadastroGestorController.funcionario.dataContratacao}"
                                          styleClass="form-control"
                                          id="datacontr">
                                 <f:convertDateTime pattern="dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
@@ -125,15 +127,22 @@
                     </div>
                     <div class="row g-5">
                         <div class="col-md-4">
+                            <label for="cnpj" class="form-label">CNPJ Empresa</label>
+                            <h:inputText value="#{cadastroGestorController.cnpj}" styleClass="form-control"
+                                         id="cnpj"/>
+                        </div>
+                    </div>
+                    <div class="row g-5">
+                        <div class="col-md-4">
                             <label for="senha1func" class="form-label">Senha</label>
-                            <h:inputSecret value="#{cadastroFuncionarioController.senha1}" styleClass="form-control"
+                            <h:inputSecret value="#{cadastroGestorController.senha1}" styleClass="form-control"
                                            id="senha1func">
                                 <f:passThroughAttribute name="placeholder" value="Digite uma senha"/>
                             </h:inputSecret>
                         </div>
                         <div class="col-md-4">
                             <label for="senha2func" class="form-label">Confirmação de Senha</label>
-                            <h:inputSecret value="#{cadastroFuncionarioController.senha2}" styleClass="form-control"
+                            <h:inputSecret value="#{cadastroGestorController.senha2}" styleClass="form-control"
                                            id="senha2func">
                                 <f:passThroughAttribute name="placeholder" value="Digite a senha novamente"/>
                             </h:inputSecret>
@@ -141,13 +150,13 @@
                     </div>
                     <div class="row g-5">
                         <div class="col-md-3">
-                            <h:commandButton value="Cadastrar"
-                                             actionListener="#{cadastroFuncionarioController.cadastrar}"/>
+                            <h:commandButton styleClass="botao" value="Cadastrar"
+                                             action="#{cadastroGestorController.cadastrar}"/>
                         </div>
                     </div>
                 </h:form>
             </div>
-        </div>
+        </main>
     </ui:define>
 </ui:composition>
 </html>

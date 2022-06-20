@@ -9,43 +9,54 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 @SessionScoped
 @Named
 public class LoginController implements Serializable {
+    /**
+     * Armazena o usuário logado.
+     */
     private Usuario usuario = new Usuario();
-    private ProcessoLogin processoLogin;
-    private FacesContext facesContext;
-
-    public LoginController() {
-        processoLogin = new ProcessoLogin();
-        facesContext = FacesContext.getCurrentInstance();
-    }
 
     public String logar() {
+        ProcessoLogin processoLogin = new ProcessoLogin();
+        FacesContext facesContext = FacesContext.getCurrentInstance();
         String pagina = "";
-        if (usuario.getEmail().isEmpty()) {
-            facesContext.addMessage(null, new FacesMessage("Insira o e-mail"));
-        } else if (usuario.getSenha().isEmpty()) {
-            facesContext.addMessage(null, new FacesMessage("Insira a senha"));
-        } else {
-            Usuario u = processoLogin.buscarUsuario(usuario.getEmail());
-            if (u == null) {
-                facesContext.addMessage(null, new FacesMessage("E-mail não encontrado"));
-            }
-            if (!u.getSenha().equals(usuario.getSenha())) {
-                facesContext.addMessage(null, new FacesMessage("Senha incorreta"));
+        try {
+            if (usuario.getEmail().isEmpty()) {
+                facesContext.addMessage(null, new FacesMessage("Insira o e-mail"));
+            } else if (usuario.getSenha().isEmpty()) {
+                facesContext.addMessage(null, new FacesMessage("Insira a senha"));
             } else {
-                usuario = u;
-                pagina = seguirFluxo();
+                Usuario u = processoLogin.buscarUsuario(usuario.getEmail());
+                if (u == null) {
+                    facesContext.addMessage(null, new FacesMessage("E-mail não encontrado"));
+                } else if (!senhaValida(u.getSenha())) {
+                    facesContext.addMessage(null, new FacesMessage("Senha incorreta"));
+                } else {
+                    usuario = u;
+                    pagina = seguirFluxo();
+                }
             }
+        } catch (Exception e) {
+            facesContext.addMessage(null, new FacesMessage(e.getMessage()));
         }
         return pagina;
     }
 
+    private boolean senhaValida(String senha) throws NoSuchAlgorithmException {
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        byte[] stream = messageDigest.digest(usuario.getSenha().getBytes(StandardCharsets.UTF_8));
+        String senhaCript = new String(stream, StandardCharsets.UTF_8);
+        return senha.equals(senhaCript);
+    }
+
     private String seguirFluxo() {
         if (usuario.getPapel() == Papel.GESTOR) {
-            return "/publico/temp.xhtml?faces-redirect=true";
+            return "/privado/gestor.xhtml?faces-redirect=true";
         } else if (usuario.getPapel() == Papel.PSICOLOGO) {
             return "/privado/cadastro_formulario.xhtml?faces-redirect=true";
         } else {

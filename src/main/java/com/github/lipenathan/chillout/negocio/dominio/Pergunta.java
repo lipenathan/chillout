@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.github.lipenathan.chillout.utils.Validacao.validarCampoObrigatorio;
+import static com.github.lipenathan.chillout.utils.validacao.Validacao.validarCampoObrigatorio;
 
 @Entity
 public class Pergunta {

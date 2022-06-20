@@ -4,6 +4,9 @@ import com.github.lipenathan.chillout.negocio.exception.NegocioException;
 
 import javax.persistence.*;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 import static com.github.lipenathan.flynn.validador.Validador.validarCrm;
@@ -40,6 +43,13 @@ public class Psicologo {
     public void validar() throws NegocioException {
         usuario.validarUsuario();
         if (!validarCrm(crm)) throw NegocioException.DOCUMENTO_INVALIDO;
+    }
+
+    public void criptografar() throws NoSuchAlgorithmException {
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        byte stream[] = messageDigest.digest(getSenha().getBytes(StandardCharsets.UTF_8));
+        String senha = new String(stream, StandardCharsets.UTF_8);
+        this.setSenha(senha);
     }
 
     public Usuario getUsuario() {
