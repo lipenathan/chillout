@@ -20,6 +20,7 @@ public class LoginController implements Serializable {
      * Armazena o usuário logado.
      */
     private Usuario usuario = new Usuario();
+    private boolean usuarioLogado = false;
 
     public String logar() {
         ProcessoLogin processoLogin = new ProcessoLogin();
@@ -38,6 +39,7 @@ public class LoginController implements Serializable {
                     facesContext.addMessage(null, new FacesMessage("Senha incorreta"));
                 } else {
                     usuario = u;
+                    usuarioLogado = true;
                     pagina = seguirFluxo();
                 }
             }
@@ -45,6 +47,12 @@ public class LoginController implements Serializable {
             facesContext.addMessage(null, new FacesMessage(e.getMessage()));
         }
         return pagina;
+    }
+
+    public String deslogar() {
+        this.usuario = new Usuario();
+        usuarioLogado = false;
+        return "/publico/login.xhtml?faces-redirect=true";
     }
 
     private boolean senhaValida(String senha) throws NoSuchAlgorithmException {
@@ -71,4 +79,12 @@ public class LoginController implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    public boolean isUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+//    public boolean isColaborador() {
+//        return usuarioLogado
+//    }
 }

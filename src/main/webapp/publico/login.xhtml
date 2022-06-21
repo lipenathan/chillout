@@ -15,26 +15,22 @@
         <div class="conteudo-login text-center">
             <main class="form-signin w-100 m-auto">
                 <h:form>
-                    <img id="img_logo" class="mb-4" src="../resources/imagens/chillout_logo.png" alt="" width="72"
-                         height="57"/>
-                    <h1 class="h3 mb-3 fw-normal">Efetuar Login</h1>
-
                     <div class="form-floating">
-<!--                        <h:outputLabel for="email" value="E-mail" styleClass="logar-label"/>-->
                         <h:inputText id="floatingInput" value="#{loginController.usuario.email}">
                             <f:passThroughAttribute name="type" value="email"/>
                             <f:passThroughAttribute name="class" value="form-control"/>
                         </h:inputText>
-                        <label for="floatingInput">Email address</label>
+                        <label for="floatingInput">E-mail</label>
                     </div>
                     <div class="form-floating">
                         <h:inputText id="floatingPassword" value="#{loginController.usuario.senha}">
                             <f:passThroughAttribute name="type" value="password"/>
                             <f:passThroughAttribute name="class" value="form-control"/>
+                            <f:passThroughAttribute name="autocomplete" value="false"/>
                         </h:inputText>
-                        <label for="floatingPassword">Password</label>
+                        <label for="floatingPassword">Senha</label>
                     </div>
-<!--                    <button class="w-100 btn btn-lg btn-primary logar" type="submit">Logar</button>-->
+                    <!--                    <button class="w-100 btn btn-lg btn-primary logar" type="submit">Logar</button>-->
                     <h:commandButton action="#{loginController.logar()}" value="Logar">
                         <f:passThroughAttribute name="class" value="w-100 btn btn-lg btn-primary logar"/>
                     </h:commandButton>

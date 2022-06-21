@@ -13,15 +13,6 @@
               integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
               crossorigin="anonymous"/>
         <link rel="stylesheet" href="../resources/css/style.css"/>
-        <script src="https://code.jquery.com/jquery-1.12.0.js"/>
-        <script>
-            $(document).ready(function(){
-                $('a').click(function(){
-                    $('a').removeClass("active");
-                    $(this).addClass("active");
-                });
-            });
-        </script>
     </h:head>
     <div id="cabecalho" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -36,9 +27,14 @@
             <li><a href="../publico/contato.xhtml" class="nav-link ">Contato</a></li>
         </ul>
         <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2 botao"
-                    onclick="window.location.href='login.xhtml'">Logar
-            </button>
+            <h:form>
+                <h:commandButton styleClass="btn btn-outline-light me-2 botao"
+                                 action="login.xhtml?faces-redirect=true" value="Logar"
+                                 rendered="#{!loginController.usuarioLogado}"/>
+                <h:commandButton styleClass="btn btn-outline-light me-2 botao"
+                                 action="#{loginController.deslogar()}" value="Sair"
+                                 rendered="#{loginController.usuarioLogado}"/>
+            </h:form>
         </div>
     </div>
 
@@ -48,16 +44,16 @@
 
     <footer>
         <div class="pp">
-            <p>2021@Chillout</p>
+            <p>2022@Chillout</p>
             <p>All Rigths reserved.</p>
         </div>
         <div class="nav-footer !important">
-            <a href="" class="link-dark">Home</a>
-            <a href="" class="link-dark">Sobre</a>
-            <a href="" class="link-dark">Dúvidas</a>
+            <a href="home.xhtml" class="link-dark">Home</a>
+            <a href="sobre.xhtml" class="link-dark">Sobre</a>
+            <a href="duvidas.xhtml" class="link-dark">Dúvidas</a>
         </div>
         <div class="nav-footer !important">
-            <a href="" class="link-dark">Contato</a>
+            <a href="contato.xhtml" class="link-dark">Contato</a>
             <a href="" class="link-dark">Facebook</a>
             <a href="" class="link-dark">Instagram</a>
         </div>
