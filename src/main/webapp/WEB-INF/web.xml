@@ -20,4 +20,8 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/privado/*</url-pattern>
     </filter-mapping>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/publico/temp.xhtml</location>
+    </error-page>
 </web-app>

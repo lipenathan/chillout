@@ -13,6 +13,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import static com.github.lipenathan.chillout.negocio.dominio.Papel.*;
+
 @SessionScoped
 @Named
 public class LoginController implements Serializable {
@@ -63,7 +65,7 @@ public class LoginController implements Serializable {
     }
 
     private String seguirFluxo() {
-        if (usuario.getPapel() == Papel.GESTOR) {
+        if (usuario.getPapel() == GESTOR) {
             return "/privado/gestor.xhtml?faces-redirect=true";
         } else if (usuario.getPapel() == Papel.PSICOLOGO) {
             return "/privado/cadastro_formulario.xhtml?faces-redirect=true";
@@ -84,7 +86,15 @@ public class LoginController implements Serializable {
         return usuarioLogado;
     }
 
-//    public boolean isColaborador() {
-//        return usuarioLogado
-//    }
+    public boolean isColaborador() {
+        return usuario.getPapel() == FUNCIONARIO;
+    }
+
+    public boolean isPsicologo() {
+        return usuario.getPapel() == PSICOLOGO;
+    }
+
+    public boolean isGestor() {
+        return usuario.getPapel() == GESTOR;
+    }
 }

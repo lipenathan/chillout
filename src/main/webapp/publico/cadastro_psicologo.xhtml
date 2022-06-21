@@ -8,140 +8,129 @@
 <h:head/>
 <ui:composition template="../privado/_template.xhtml">
     <ui:define name="conteudo">
-        <!-- inicio cabecalho -->
-        <div id="cabecalho" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li>
-                    <a href="cadastro_empresa.xhtml" class="nav-link px-2 text-secondary">
-                        <img id="img_logo" src="../resources/imagens/chillout_logo.png" alt="Chillout"/>
-                    </a>
-                </li>
-                <li><a href="cadastro_empresa.xhtml" class="nav-link px-2 text-secondary">Home</a></li>
-                <li><a href="temp.xhtml" class="nav-link px-2 text-white">Sobre</a></li>
-                <li><a href="temp.xhtml" class="nav-link px-2 text-white">Dúvidas</a></li>
-                <li><a href="temp.xhtml" class="nav-link px-2 text-white">Contato</a></li>
-            </ul>
-            <div class="text-end">
-                <button id="bt_logar" type="button" class="btn btn-outline-light me-2">Logar</button>
+        <main>
+            <!-- fim cabecalho -->
+            <h:messages/>
+            <div class="titulo-pagina">
+                <h1>Cadastro Psícologo</h1>
             </div>
-        </div>
-        <!-- fim cabecalho -->
-        <h:messages/>
-        <div class="titulo_pagina">
-            <h1>Cadastro Psícologo</h1>
-        </div>
-        <br/>
-        <br/>
-        <div class="container">
-            <h4 class="mb-3">Dados</h4>
-            <h:form>
-                <div class="row g-5">
-                    <div class="col-md-4">
-                        <label for="nome" class="form-label">Nome</label>
-                        <h:inputText value="#{cadastroPsicologoController.psicologo.nome}" styleClass="form-control"
-                                     id="nome"/>
+            <br/>
+            <br/>
+            <div class="container">
+                <h4 class="mb-3">Dados</h4>
+                <h:form>
+                    <div class="row g-5">
+                        <div class="col-md-4">
+                            <label for="nome" class="form-label">Nome</label>
+                            <h:inputText value="#{cadastroPsicologoController.psicologo.nome}" styleClass="form-control"
+                                         id="nome"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="sobrenome" class="form-label">Sobrenome</label>
+                            <h:inputText value="#{cadastroPsicologoController.psicologo.sobrenome}"
+                                         styleClass="form-control"
+                                         id="sobrenome"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cpf" class="form-label">CPF</label>
+                            <h:inputText style="width: 60%" value="#{cadastroPsicologoController.psicologo.cpf}"
+                                         styleClass="form-control" id="cpf">
+                            </h:inputText>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="sobrenome" class="form-label">Sobrenome</label>
-                        <h:inputText value="#{cadastroPsicologoController.psicologo.sobrenome}"
-                                     styleClass="form-control"
-                                     id="sobrenome"/>
+                    <div class="row g-5">
+                        <div class="col-md-4">
+                            <label for="datanasc" class="form-label">Data de Nascimento</label>
+                            <h:inputText value="#{cadastroPsicologoController.psicologo.dataNascimento}"
+                                         styleClass="form-control" id="datanasc">
+                                <f:convertDateTime pattern="dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
+                            </h:inputText>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="email" class="form-label">E-mail</label>
+                            <h:inputText value="#{cadastroPsicologoController.psicologo.email}"
+                                         styleClass="form-control"
+                                         id="email"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="rua" class="form-label">Rua</label>
+                            <h:inputText value="#{cadastroPsicologoController.endereco.rua}" styleClass="form-control"
+                                         id="rua"/>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="cpf" class="form-label">CPF</label>
-                        <h:inputText style="width: 60%" value="#{cadastroPsicologoController.psicologo.cpf}"
-                                     styleClass="form-control" id="cpf">
-                        </h:inputText>
+                    <div class="row g-5">
+                        <div class="col-md-4">
+                            <label for="bairro" class="form-label">Bairro</label>
+                            <h:inputText value="#{cadastroPsicologoController.endereco.bairro}"
+                                         styleClass="form-control" id="bairro"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="numeroEndereco" class="form-label">Nº Endereço</label>
+                            <h:inputText value="#{cadastroPsicologoController.endereco.numeroEndereco}"
+                                         styleClass="form-control" id="numeroEndereco">
+                                <f:passThroughAttribute name="type" value="number"/>
+                            </h:inputText>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="cidade" class="form-label">Cidade</label>
+                            <h:inputText value="#{cadastroPsicologoController.endereco.cidade}"
+                                         styleClass="form-control"
+                                         id="cidade">
+                            </h:inputText>
+                        </div>
                     </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-md-4">
-                        <label for="datanasc" class="form-label">Data de Nascimento</label>
-                        <h:inputText value="#{cadastroPsicologoController.psicologo.dataNascimento}"
-                                     styleClass="form-control" id="datanasc">
-                            <f:convertDateTime pattern="dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
-                        </h:inputText>
+                    <div class="row g-5">
+                        <div class="col-md-4">
+                            <label for="uf" class="form-label">UF</label>
+                            <h:inputText value="#{cadastroPsicologoController.endereco.estado}"
+                                         styleClass="form-control"
+                                         id="uf" maxlength="2">
+                            </h:inputText>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pais" class="form-label">País</label>
+                            <h:inputText value="#{cadastroPsicologoController.endereco.pais}" styleClass="form-control"
+                                         id="pais"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="complemento" class="form-label">Complemento</label>
+                            <h:inputText value="#{cadastroPsicologoController.endereco.complemento}"
+                                         styleClass="form-control"
+                                         id="complemento"/>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="email" class="form-label">E-mail</label>
-                        <h:inputText value="#{cadastroPsicologoController.psicologo.email}" styleClass="form-control"
-                                     id="email"/>
+                    <div class="row g-5">
+                        <div class="col-md-4">
+                            <label for="crm" class="form-label">CRM</label>
+                            <h:inputText value="#{cadastroPsicologoController.psicologo.crm}" styleClass="form-control"
+                                         id="crm"/>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="rua" class="form-label">Rua</label>
-                        <h:inputText value="#{cadastroPsicologoController.endereco.rua}" styleClass="form-control"
-                                     id="rua"/>
+                    <div class="row g-5">
+                        <div class="col-md-4">
+                            <label for="senha1" class="form-label">Senha</label>
+                            <h:inputSecret value="#{cadastroPsicologoController.senha1}" styleClass="form-control"
+                                           id="senha1">
+                                <f:passThroughAttribute name="placeholder" value="Digite uma senha"/>
+                            </h:inputSecret>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="senha2" class="form-label">Confirmação de Senha</label>
+                            <h:inputSecret value="#{cadastroPsicologoController.senha2}" styleClass="form-control"
+                                           id="senha2">
+                                <f:passThroughAttribute name="placeholder" value="Digite a senha novamente"/>
+                            </h:inputSecret>
+                        </div>
                     </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-md-4">
-                        <label for="bairro" class="form-label">Bairro</label>
-                        <h:inputText value="#{cadastroPsicologoController.endereco.bairro}"
-                                     styleClass="form-control" id="bairro"/>
+                    <div class="row g-5">
+                        <div class="col-md-3">
+                            <h:commandButton styleClass="botao" value="Cadastrar"
+                                             actionListener="#{cadastroPsicologoController.cadastrar}"/>
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="numeroEndereco" class="form-label">Nº Endereço</label>
-                        <h:inputText value="#{cadastroPsicologoController.endereco.numeroEndereco}"
-                                     styleClass="form-control" id="numeroEndereco">
-                            <f:passThroughAttribute name="type" value="number"/>
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="cidade" class="form-label">Cidade</label>
-                        <h:inputText value="#{cadastroPsicologoController.endereco.cidade}" styleClass="form-control"
-                                     id="cidade">
-                        </h:inputText>
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-md-4">
-                        <label for="uf" class="form-label">UF</label>
-                        <h:inputText value="#{cadastroPsicologoController.endereco.estado}" styleClass="form-control"
-                                     id="uf" maxlength="2">
-                        </h:inputText>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="pais" class="form-label">País</label>
-                        <h:inputText value="#{cadastroPsicologoController.endereco.pais}" styleClass="form-control"
-                                     id="pais"/>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="complemento" class="form-label">Complemento</label>
-                        <h:inputText value="#{cadastroPsicologoController.endereco.complemento}"
-                                     styleClass="form-control"
-                                     id="complemento"/>
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-md-4">
-                        <label for="crm" class="form-label">CRM</label>
-                        <h:inputText value="#{cadastroPsicologoController.psicologo.crm}" styleClass="form-control"
-                                     id="crm"/>
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-md-4">
-                        <label for="senha1" class="form-label">Senha</label>
-                        <h:inputSecret value="#{cadastroPsicologoController.senha1}" styleClass="form-control"
-                                       id="senha1">
-                            <f:passThroughAttribute name="placeholder" value="Digite uma senha"/>
-                        </h:inputSecret>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="senha2" class="form-label">Confirmação de Senha</label>
-                        <h:inputSecret value="#{cadastroPsicologoController.senha2}" styleClass="form-control"
-                                       id="senha2">
-                            <f:passThroughAttribute name="placeholder" value="Digite a senha novamente"/>
-                        </h:inputSecret>
-                    </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-md-3">
-                        <h:commandButton styleClass="botao" value="Cadastrar" actionListener="#{cadastroPsicologoController.cadastrar}"/>
-                    </div>
-                </div>
-            </h:form>
-        </div>
+                </h:form>
+            </div>
+        </main>
     </ui:define>
 </ui:composition>
 </html>

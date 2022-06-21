@@ -8,102 +8,106 @@
 <h:head/>
 <ui:composition template="_template.xhtml">
     <ui:define name="conteudo">
-        <h:messages/>
-        <div class="titulo_pagina">
-            <h1>Cadastro Formulário</h1>
-        </div>
-        <br/>
-        <br/>
-        <div class="container">
-            <h:form>
-                <div class="container my-5 form_perguntas">
-                    <h3>Empresa referente ao Formulário</h3>
-                    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                        <h:selectOneMenu value="#{cadastroFomularioController.empresaSelecionada}" >
-                            <f:selectItems value="#{cadastroFomularioController.comboEmpresas}"/>
-                        </h:selectOneMenu>
+        <main>
+            <h:messages/>
+            <div class="titulo-pagina">
+                <h1>Cadastrar Formulário</h1>
+            </div>
+            <br/>
+            <br/>
+            <div class="container">
+                <h:form>
+                    <div class="container my-5">
+                        <h3 class="form-perguntas">Empresa referente ao Formulário</h3>
+                        <div class="row p-4 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                            <h:selectOneMenu value="#{cadastroFomularioController.empresaSelecionada}">
+                                <f:selectItems value="#{cadastroFomularioController.comboEmpresas}"/>
+                            </h:selectOneMenu>
+                        </div>
+                        <h3 class="form-perguntas">Título Formulário</h3>
+                        <div class="row p-4 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                            <h:inputTextarea value="#{cadastroFomularioController.formulario.tituloFormulario}">
+                                <f:passThroughAttribute name="placeholder" value="Insira um Título para o formulário"/>
+                            </h:inputTextarea>
+                        </div>
+                        <h3 class="form-perguntas">Descrição Formulário</h3>
+                        <div class="row p-4 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                            <h:inputTextarea value="#{cadastroFomularioController.formulario.descricaoFormulario}">
+                                <f:passThroughAttribute name="placeholder"
+                                                        value="Insira uma descrição para o formulário"/>
+                            </h:inputTextarea>
+                        </div>
+                        <h2 class="mb-3 form-perguntas">Perguntas</h2>
+                        <div class="row p-4 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                            <h3>Pergunta 1</h3>
+                            <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(0).textoPergunta}">
+                                <f:passThroughAttribute name="placeholder" value="Escreva a primeira pergunta"/>
+                            </h:inputTextarea>
+                            <h:outputLabel>Resposta peso 1</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(0, 0).textoResposta}">
+                            </h:inputText>
+                            <h:outputLabel>Resposta peso 2</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(0, 1).textoResposta}">
+                            </h:inputText>
+                            <h:outputLabel>Resposta peso 3</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(0, 2).textoResposta}">
+                            </h:inputText>
+                            <h:outputLabel>Resposta peso 4</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(0, 3).textoResposta}">
+                            </h:inputText>
+                            <h:outputLabel>Resposta peso 5</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(0, 4).textoResposta}">
+                            </h:inputText><br/>
+                        </div>
                     </div>
-                    <h3>Título Formulário</h3>
-                    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                        <h:inputTextarea value="#{cadastroFomularioController.formulario.tituloFormulario}">
-                            <f:passThroughAttribute name="placeholder" value="Insira um Título para o formulário"/>
-                        </h:inputTextarea>
-                    </div>
-                    <h3>Descrição Formulário</h3>
-                    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                        <h:inputTextarea value="#{cadastroFomularioController.formulario.descricaoFormulario}">
-                            <f:passThroughAttribute name="placeholder" value="Insira uma descrição para o formulário"/>
-                        </h:inputTextarea>
-                    </div>
-                    <h2 class="mb-3">Perguntas</h2>
-                    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                        <h3>Pergunta 1</h3>
-                        <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(0).textoPergunta}">
-                            <f:passThroughAttribute name="placeholder" value="Escreva a primeira pergunta"/>
-                        </h:inputTextarea>
-                        <h:outputLabel>Resposta peso 1</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(0, 0).textoResposta}">
-                        </h:inputText>
-                        <h:outputLabel>Resposta peso 2</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(0, 1).textoResposta}">
-                        </h:inputText>
-                        <h:outputLabel>Resposta peso 3</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(0, 2).textoResposta}">
-                        </h:inputText>
-                        <h:outputLabel>Resposta peso 4</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(0, 3).textoResposta}">
-                        </h:inputText>
-                        <h:outputLabel>Resposta peso 5</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(0, 4).textoResposta}">
-                        </h:inputText><br/>
-                    </div>
-                </div>
 
-                <div class="container my-5 form_perguntas">
-                    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                        <h3>Pergunta 2</h3>
-                        <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(1).textoPergunta}">
-                            <f:passThroughAttribute name="placeholder" value="Escreva a primeira pergunta"/>
-                        </h:inputTextarea>
-                        <h:outputLabel>Resposta peso 1</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(1, 0).textoResposta}">
-                        </h:inputText>
-                        <h:outputLabel>Resposta peso 2</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(1, 1).textoResposta}">
-                        </h:inputText>
-                        <h:outputLabel>Resposta peso 3</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(1, 2).textoResposta}">
-                        </h:inputText>
-                        <h:outputLabel>Resposta peso 4</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(1, 3).textoResposta}">
-                        </h:inputText>
-                        <h:outputLabel>Resposta peso 5</h:outputLabel>
-                        <h:inputText value="#{cadastroFomularioController.getResposta(1, 4).textoResposta}">
-                        </h:inputText><br/>
+                    <div class="container my-5">
+                        <div class="row p-4 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                            <h3>Pergunta 2</h3>
+                            <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(1).textoPergunta}">
+                                <f:passThroughAttribute name="placeholder" value="Escreva a segunda pergunta"/>
+                            </h:inputTextarea>
+                            <h:outputLabel>Resposta peso 1</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(1, 0).textoResposta}">
+                            </h:inputText>
+                            <h:outputLabel>Resposta peso 2</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(1, 1).textoResposta}">
+                            </h:inputText>
+                            <h:outputLabel>Resposta peso 3</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(1, 2).textoResposta}">
+                            </h:inputText>
+                            <h:outputLabel>Resposta peso 4</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(1, 3).textoResposta}">
+                            </h:inputText>
+                            <h:outputLabel>Resposta peso 5</h:outputLabel>
+                            <h:inputText value="#{cadastroFomularioController.getResposta(1, 4).textoResposta}">
+                            </h:inputText><br/>
+                        </div>
                     </div>
-                </div>
 
-                <div class="container my-5 form_perguntas">
-                    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-                        <h3>Pergunta para resposta subjetiva</h3>
-                        <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(2).textoPergunta}">
-                            <f:passThroughAttribute name="placeholder"
-                                                    value="Escreva uma pergunta para dissertação do cooperado"/>
-                        </h:inputTextarea>
+                    <div class="container my-5 form-perguntas">
+                        <div class="row p-4 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+                            <h3>Pergunta para resposta subjetiva</h3>
+                            <h:inputTextarea value="#{cadastroFomularioController.perguntas.get(2).textoPergunta}">
+                                <f:passThroughAttribute name="placeholder"
+                                                        value="Escreva uma pergunta para dissertação do cooperado"/>
+                            </h:inputTextarea>
+                        </div>
                     </div>
-                </div>
-                <div class="row g-5">
-                    <div class="col-md-3">
-                        <h:commandButton styleClass="botao" value="Cadastrar" actionListener="#{cadastroFomularioController.cadastrar}"/>
-                    </div>
-                </div>
-            </h:form>
-        </div>
-        <!--suppress CheckEmptyScriptTag -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-                crossorigin="anonymous"
-                type="javascript"/>
+<!--                    <div class="row g-5 bt-cadastrar">-->
+                        <div class="bt-cadastrar-formulario">
+                            <h:commandButton styleClass="botao" value="Cadastrar"
+                                             actionListener="#{cadastroFomularioController.cadastrar}"/>
+                        </div>
+<!--                    </div>-->
+                </h:form>
+            </div>
+            <!--suppress CheckEmptyScriptTag -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+                    crossorigin="anonymous"
+                    type="javascript"/>
+        </main>
     </ui:define>
 </ui:composition>
 </html>

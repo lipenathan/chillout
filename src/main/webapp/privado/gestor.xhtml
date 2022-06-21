@@ -9,21 +9,20 @@
 <ui:composition template="_template.xhtml">
     <ui:define name="conteudo">
         <h:messages/>
-        <div class="titulo_pagina">
-            <h1>Cadastro Empresa</h1>
-        </div>
-        <br/>
-        <br/>
-        <div>
-            <div class="container">
-                <h4 class="mb-3">Cadastro de Funcionários</h4>
+        <main>
+            <div class="titulo-pagina">
+                <h1>Cadastro de Colaboradores</h1>
+            </div>
+            <br/>
+            <br/>
+            <div class="cadastro-funcionarios">
                 <h:form enctype="multipart/form-data">
                     <h:inputFile value="#{gestorController.arquivo}"/>
                     <h:commandButton styleClass="botao" action="#{gestorController.uploadArquivo()}"
                                      value="Cadastrar Colaboradores"/>
                 </h:form>
             </div>
-        </div>
+        </main>
     </ui:define>
 </ui:composition>
 </html>
