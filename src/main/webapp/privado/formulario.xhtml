@@ -32,6 +32,7 @@
                                         <h:outputText value="#{pergunta.textoPergunta}"/>
                                     </p><br/>
                                     <c:if test="#{!pergunta.subjetiva}">
+                                        <div class="perguntas-radio">
                                         <h:selectOneRadio value="#{pergunta.idRespostaSelecionada}">
                                             <f:selectItem itemLabel="#{pergunta.respostas.get(0).textoResposta}"
                                                            itemValue="#{pergunta.respostas.get(0).id}"/>
@@ -44,9 +45,10 @@
                                             <f:selectItem itemLabel="#{pergunta.respostas.get(4).textoResposta}"
                                                           itemValue="#{pergunta.respostas.get(4).id}"/>
                                         </h:selectOneRadio>
+                                        </div>
                                     </c:if>
                                     <c:if test="#{pergunta.subjetiva}">
-                                        <h:inputTextarea
+                                        <h:inputTextarea styleClass="text-subjetiva"
                                                 value="#{formularioController.respostaSubjetiva.textoResposta}"/>
                                     </c:if>
                                 </div>

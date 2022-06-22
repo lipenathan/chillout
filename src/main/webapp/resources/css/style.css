@@ -333,6 +333,21 @@ main {
     align-items: center !important;
     display: flex !important;
 }
+
+.perguntas-radio > table > tbody > tr > td{
+    display: flex;
+    align-items: center;
+}
+
+.perguntas-radio > table > tbody > tr > td > label{
+    margin: 0 20px;
+}
+
+.text-subjetiva {
+    width: 500px;
+    height: 100px;
+    border-radius: 5px;
+}
 /* Componentes personalizados */
 #img_logo {
     width: 120px;

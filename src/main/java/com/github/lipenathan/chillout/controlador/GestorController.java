@@ -49,6 +49,7 @@ public class GestorController implements Serializable {
                 relacionarFuncionariosEmpresa(funcionarios);
                 processosGestor.cadastrarFuncionarios(funcionarios);
             } catch (Exception e) {
+                e.printStackTrace();
                 context.addMessage(null, new FacesMessage("Erro ao salvar funcionários"));
             }
         }

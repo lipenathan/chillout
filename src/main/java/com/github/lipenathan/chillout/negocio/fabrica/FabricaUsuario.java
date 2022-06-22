@@ -5,7 +5,6 @@ import com.github.lipenathan.chillout.negocio.dominio.Funcionario;
 import com.github.lipenathan.chillout.negocio.dominio.Usuario;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ public class FabricaUsuario {
 
     public static List<Funcionario> fabricarFuncionarios(BufferedReader reader) throws Exception {
         List<Funcionario> lista = new ArrayList<>();
-        while (reader.readLine() != null) {
+        while (reader.ready()) {
             lista.add(fabricarFuncionario(reader.readLine()));
         }
         return lista;
