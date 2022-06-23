@@ -9,8 +9,6 @@
 <ui:composition template="../privado/_template.xhtml">
     <ui:define name="conteudo">
         <main>
-            <!-- fim cabecalho -->
-            <h:messages/>
             <div class="titulo-pagina">
                 <h1>Cadastro Psícologo</h1>
             </div>
@@ -35,6 +33,7 @@
                             <label for="cpf" class="form-label">CPF</label>
                             <h:inputText style="width: 60%" value="#{cadastroPsicologoController.psicologo.cpf}"
                                          styleClass="form-control" id="cpf">
+                                <f:passThroughAttribute name="id" value="cpf"/>
                             </h:inputText>
                         </div>
                     </div>
@@ -43,7 +42,8 @@
                             <label for="datanasc" class="form-label">Data de Nascimento</label>
                             <h:inputText value="#{cadastroPsicologoController.psicologo.dataNascimento}"
                                          styleClass="form-control" id="datanasc">
-                                <f:convertDateTime pattern="dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
+                                <f:convertDateTime pattern="yyyy-mm-dd" type="date" timeZone="America/Sao_Paulo"/>
+                                <f:passThroughAttribute name="type" value="date"/>
                             </h:inputText>
                         </div>
                         <div class="col-md-4">
@@ -123,6 +123,7 @@
                         </div>
                     </div>
                     <div class="row g-5">
+                        <h:messages/>
                         <div class="col-md-3">
                             <h:commandButton styleClass="botao" value="Cadastrar"
                                              actionListener="#{cadastroPsicologoController.cadastrar}"/>

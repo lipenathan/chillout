@@ -32,10 +32,10 @@ public class CadastroGestorController implements Serializable {
         String navegacao = "";
         FacesContext context = FacesContext.getCurrentInstance();
         try {
-            validarSenhas();
             funcionario.setEnderecoUsuario(endereco);
             funcionario.setPapel(Papel.GESTOR);
             validarEmpresa();
+            validarSenhas();
             processosCadastroGestor.cadastrar(funcionario);
             limparCampos();
             context.addMessage(null, new FacesMessage("Usuário cadastrado com sucesso"));
@@ -62,6 +62,7 @@ public class CadastroGestorController implements Serializable {
     }
 
     private void validarEmpresa() throws Exception {
+        cnpj = cnpj.replace(".","").replace("/","").replace("-","");
         Empresa e = processosCadastroGestor.buscarEmpresaPeloCnpj(cnpj);
         if (e == null) {
             throw new Exception("Empresa não encontrada.\nFaça o cadastro empresarial primeiro");

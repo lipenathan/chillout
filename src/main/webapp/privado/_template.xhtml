@@ -14,6 +14,8 @@
               integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
               crossorigin="anonymous"/>
         <link rel="stylesheet" href="../resources/css/style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"/>
     </h:head>
     <div id="cabecalho" class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -26,6 +28,9 @@
             <li><a href="../publico/sobre.xhtml" class="nav-link">Sobre</a></li>
             <li><a href="../publico/duvidas.xhtml" class="nav-link">Dúvidas</a></li>
             <li><a href="../publico/contato.xhtml" class="nav-link ">Contato</a></li>
+            <c:if test="#{!loginController.usuarioLogado}">
+                <li><a href="../publico/cadastro_psicologo.xhtml" class="nav-link ">Sou psicólogo</a></li>
+            </c:if>
             <c:if test="#{loginController.colaborador}">
                 <li><a href="../privado/formulario.xhtml" class="nav-link ">Formulário</a></li>
             </c:if>
@@ -35,7 +40,9 @@
             <c:if test="#{loginController.psicologo}">
                 <li><a href="../privado/cadastro_formulario.xhtml" class="nav-link ">Cadastrar Formulário</a></li>
             </c:if>
+            <h:outputText rendered="#{loginController.usuarioLogado}" styleClass="msg-cabecalho" value="#{loginController.getMensagemCabecalho()}"/>
         </ul>
+
         <div class="text-end">
             <h:form>
                 <h:commandButton styleClass="btn btn-outline-light me-2 botao"
@@ -80,5 +87,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"
             type="javascript"/>
+    <script type="text/javascript">
+        $("#cpf").mask("000.000.000-00");
+        $("#cnpj").mask("00.000.000/0000-00");
+    </script>
 </h:body>
 </html>

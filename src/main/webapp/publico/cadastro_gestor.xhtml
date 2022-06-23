@@ -4,11 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head/>
 <ui:composition template="../privado/_template.xhtml">
     <ui:define name="conteudo">
-        <h:messages/>
         <div class="titulo-pagina">
             <h1>Faça seu Cadastro de Gestor</h1>
         </div>
@@ -32,9 +32,10 @@
                                          id="sobrenomefunc"/>
                         </div>
                         <div class="col-md-4">
-                            <label for="cpffunc" class="form-label">CPF</label>
+                            <label for="cpf" class="form-label">CPF</label>
                             <h:inputText style="width: 60%" value="#{cadastroGestorController.funcionario.cpf}"
-                                         styleClass="form-control" id="cpffunc">
+                                         styleClass="form-control" id="cpf">
+                                <f:passThroughAttribute name="id" value="cpf"/>
                             </h:inputText>
                         </div>
                     </div>
@@ -44,14 +45,14 @@
                             <h:inputText value="#{cadastroGestorController.funcionario.dataNascimento}"
                                          styleClass="form-control"
                                          id="datanascfunc">
-                                <f:convertDateTime pattern="dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
+                                <f:convertDateTime pattern="yyyy-mm-dd" type="date" timeZone="America/Sao_Paulo"/>
+                                <f:passThroughAttribute name="type" value="date"/>
                             </h:inputText>
                         </div>
                         <div class="col-md-4">
                             <label for="emailfunc" class="form-label">E-mail</label>
                             <h:inputText value="#{cadastroGestorController.funcionario.email}"
-                                         styleClass="form-control"
-                                         id="emailfunc">
+                                         styleClass="form-control" id="emailfunc" autocomplete="off">
                                 <f:passThroughAttribute name="autocomplete" value="off"/>
                             </h:inputText>
                         </div>
@@ -121,7 +122,8 @@
                             <h:inputText value="#{cadastroGestorController.funcionario.dataContratacao}"
                                          styleClass="form-control"
                                          id="datacontr">
-                                <f:convertDateTime pattern="dd/MM/yyyy" type="date" timeZone="America/Sao_Paulo"/>
+                                <f:convertDateTime pattern="yyyy-mm-dd" type="date" timeZone="America/Sao_Paulo"/>
+                                <f:passThroughAttribute name="type" value="date"/>
                             </h:inputText>
                         </div>
                     </div>
@@ -129,14 +131,17 @@
                         <div class="col-md-4">
                             <label for="cnpj" class="form-label">CNPJ Empresa</label>
                             <h:inputText value="#{cadastroGestorController.cnpj}" styleClass="form-control"
-                                         id="cnpj"/>
+                                         id="cnpj">
+                                <f:passThroughAttribute name="id" value="cnpj"/>
+                            </h:inputText>
                         </div>
                     </div>
                     <div class="row g-5">
                         <div class="col-md-4">
                             <label for="senha1func" class="form-label">Senha</label>
                             <h:inputSecret value="#{cadastroGestorController.senha1}" styleClass="form-control"
-                                           id="senha1func">
+                                           id="senha1func" autocomplete="off">
+                                <f:passThroughAttribute name="autocomplete" value="off"/>
                                 <f:passThroughAttribute name="placeholder" value="Digite uma senha"/>
                             </h:inputSecret>
                         </div>
@@ -149,9 +154,10 @@
                         </div>
                     </div>
                     <div class="row g-5">
+                        <h:messages/>
                         <div class="col-md-3">
                             <h:commandButton styleClass="botao" value="Cadastrar"
-                                             action="#{cadastroGestorController.cadastrar}"/>
+                                             actionListener="#{cadastroGestorController.cadastrar()}"/>
                         </div>
                     </div>
                 </h:form>

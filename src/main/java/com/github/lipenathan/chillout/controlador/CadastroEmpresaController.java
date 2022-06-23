@@ -30,6 +30,7 @@ public class CadastroEmpresaController implements Serializable {
         try {
             empresa.setEnderecoEmpresa(endereco);
             processosCadastroEmpresa.cadastrar(empresa);
+            limparCampos();
             context.addMessage(null, new FacesMessage("Empresa cadastrada com sucesso"));
             navegacao = "/privado/cadastro_gestor.xhtml?faces-redirect=true";
         } catch (Exception e) {
@@ -66,6 +67,13 @@ public class CadastroEmpresaController implements Serializable {
                 new SelectItem("Serviços de Aviação ", "Serviços de Aviação"),
                 new SelectItem("Serviços de Limpeza", "Serviços de Limpeza"),
                 new SelectItem("Serviços de Construção", "Serviços de Construção "));
+    }
+
+    private void limparCampos() {
+        this.empresa = new Empresa();
+        this.endereco = new Endereco();
+        this.senha1 = "";
+        this.senha2 = "";
     }
 
     //getters & setters

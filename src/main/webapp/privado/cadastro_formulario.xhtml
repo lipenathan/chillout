@@ -9,7 +9,6 @@
 <ui:composition template="_template.xhtml">
     <ui:define name="conteudo">
         <main>
-            <h:messages/>
             <div class="titulo-pagina">
                 <h1>Cadastrar Formulário</h1>
             </div>
@@ -94,12 +93,11 @@
                             </h:inputTextarea>
                         </div>
                     </div>
-<!--                    <div class="row g-5 bt-cadastrar">-->
-                        <div class="bt-cadastrar-formulario">
-                            <h:commandButton styleClass="botao" value="Cadastrar"
-                                             actionListener="#{cadastroFomularioController.cadastrar}"/>
-                        </div>
-<!--                    </div>-->
+                    <h:messages/>
+                    <div class="bt-cadastrar-formulario">
+                        <h:commandButton styleClass="botao" value="Cadastrar"
+                                         actionListener="#{cadastroFomularioController.cadastrar}"/>
+                    </div>
                 </h:form>
             </div>
             <!--suppress CheckEmptyScriptTag -->

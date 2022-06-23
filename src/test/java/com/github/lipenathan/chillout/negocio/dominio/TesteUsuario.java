@@ -44,4 +44,11 @@ public class TesteUsuario {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void testeStrigBuilder() {
+        StringBuilder s = new StringBuilder();
+        s.append("olá").append(" Fulano").append(", tudo bem?");
+        System.out.println(s);
+    }
 }

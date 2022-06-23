@@ -36,6 +36,7 @@ public class GestorController implements Serializable {
     }
 
     public void uploadArquivo() {
+        context = FacesContext.getCurrentInstance();
         if (arquivo != null && arquivo.getSize() > 0) {
             String nomeArquivo = ArquivoHandler.getNomeArquivo(arquivo);
             File savedFile = new File("C://Users/lipen/AppData/Local/Temp", nomeArquivo);
@@ -48,10 +49,13 @@ public class GestorController implements Serializable {
                 List<Funcionario> funcionarios = FabricaUsuario.fabricarFuncionarios(bufReader);
                 relacionarFuncionariosEmpresa(funcionarios);
                 processosGestor.cadastrarFuncionarios(funcionarios);
+                context.addMessage(null, new FacesMessage("Funcionários cadastrados com sucesso!"));
             } catch (Exception e) {
                 e.printStackTrace();
                 context.addMessage(null, new FacesMessage("Erro ao salvar funcionários"));
             }
+        } else {
+            context.addMessage(null, new FacesMessage("Nenhum arquivo selecionado"));
         }
     }
 

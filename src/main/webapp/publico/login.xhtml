@@ -8,7 +8,6 @@
 <h:head/>
 <ui:composition template="../privado/_template.xhtml">
     <ui:define name="conteudo">
-        <h:messages/>
         <div class="titulo-pagina">
             <h1>Login</h1>
         </div>
@@ -30,7 +29,7 @@
                         </h:inputText>
                         <label for="floatingPassword">Senha</label>
                     </div>
-                    <!--                    <button class="w-100 btn btn-lg btn-primary logar" type="submit">Logar</button>-->
+                    <h:messages/>
                     <h:commandButton action="#{loginController.logar()}" value="Logar">
                         <f:passThroughAttribute name="class" value="w-100 btn btn-lg btn-primary logar"/>
                     </h:commandButton>

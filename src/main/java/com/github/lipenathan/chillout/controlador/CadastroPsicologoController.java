@@ -30,9 +30,9 @@ public class CadastroPsicologoController implements Serializable {
     public void cadastrar() {
         context = FacesContext.getCurrentInstance();
         try {
-            validarSenhas();
             psicologo.setEnderecoUsuario(endereco);
             psicologo.setPapel(Papel.PSICOLOGO);
+            validarSenhas();
             processosCadastroPsicologo.cadastrar(psicologo);
             limparCampos();
             context.addMessage(null, new FacesMessage("Usuário cadastrado com sucesso"));

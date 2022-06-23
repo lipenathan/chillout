@@ -55,6 +55,7 @@ public class Usuario {
     protected void validarcpf() throws NegocioException {
         if (cpf == null || cpf.isEmpty()) throw NegocioException.DOCUMENTO_INVALIDO;
         if (!validarCpf(cpf)) throw NegocioException.DOCUMENTO_INVALIDO;
+        cpf = cpf.replace(".","").replace("-","");
     }
 
     /** Valida a regra de senha proposta pela aplicação **/

@@ -57,6 +57,14 @@ public class LoginController implements Serializable {
         return "/publico/login.xhtml?faces-redirect=true";
     }
 
+    public String getMensagemCabecalho() {
+        StringBuilder msg = new StringBuilder();
+        msg.append("Olá ")
+                .append(usuario.getNome() + "!\n")
+                .append("Tipo do usuário: " + usuario.getPapel());
+        return msg.toString();
+    }
+
     private boolean senhaValida(String senha) throws NoSuchAlgorithmException {
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
         byte[] stream = messageDigest.digest(usuario.getSenha().getBytes(StandardCharsets.UTF_8));

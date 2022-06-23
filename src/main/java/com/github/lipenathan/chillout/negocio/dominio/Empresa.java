@@ -28,12 +28,13 @@ public class Empresa {
     }
 
     public void validar() throws NegocioException {
-        if (enderecoEmpresa == null) throw NegocioException.ENDERECO_INVALIDO;
-        enderecoEmpresa.validar();
         if (nome == null || nome.isEmpty()) throw NegocioException.NOME_EMPRESA_INVALIDO;
         if (cnpj == null || cnpj.isEmpty()) throw NegocioException.CNPJ_INVALIDO;
         if (numeroFuncionarios <= 0) throw NegocioException.NMR_FUNCIONARIOS_EMPRESA_INVALIDO;
         if (ramo == null || ramo.isEmpty()) throw NegocioException.RAMO_EMPRESA_INVALIDO;
+        if (enderecoEmpresa == null) throw NegocioException.ENDERECO_INVALIDO;
+        enderecoEmpresa.validar();
+        cnpj = cnpj.replace(".","").replace("/","").replace("-","");
     }
 
     public long getId() {

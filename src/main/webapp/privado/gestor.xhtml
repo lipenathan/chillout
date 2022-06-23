@@ -8,18 +8,16 @@
 <h:head/>
 <ui:composition template="_template.xhtml">
     <ui:define name="conteudo">
-        <h:messages/>
         <main>
             <div class="titulo-pagina">
                 <h1>Cadastro de Colaboradores</h1>
             </div>
-            <br/>
-            <br/>
             <div class="cadastro-funcionarios">
                 <h:form enctype="multipart/form-data">
                     <h:inputFile value="#{gestorController.arquivo}"/>
                     <h:commandButton styleClass="botao" action="#{gestorController.uploadArquivo()}"
                                      value="Cadastrar Colaboradores"/>
+                    <h:messages/>
                 </h:form>
             </div>
         </main>

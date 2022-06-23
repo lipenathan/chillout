@@ -9,7 +9,6 @@
 <ui:composition template="../privado/_template.xhtml">
     <ui:define name="conteudo">
         <main>
-            <h:messages/>
             <div class="titulo-pagina">
                 <h1>Cadastre sua Empresa</h1>
             </div>
@@ -20,12 +19,16 @@
                         <div class="col-md-4">
                             <label for="nomeEmpresa" class="form-label">Nome Empresa</label>
                             <h:inputText value="#{cadastroEmpresaController.empresa.nome}" styleClass="form-control"
-                                         id="nomeEmpresa"/>
+                                         id="nomeEmpresa">
+                                <h:message for="nomeEmpresa"/>
+                            </h:inputText>
                         </div>
                         <div class="col-md-4">
                             <label for="cnpj" class="form-label">CNPJ</label>
                             <h:inputText value="#{cadastroEmpresaController.empresa.cnpj}" styleClass="form-control"
-                                         id="cnpj"/>
+                                         id="cnpj">
+                                <f:passThroughAttribute name="id" value="cnpj"/>
+                            </h:inputText>
                         </div>
                         <div class="col-md-4">
                             <label for="nmrColaboradores" class="form-label">Nº de Colaboradores</label>
@@ -90,6 +93,7 @@
                         </div>
                     </div>
                     <div class="row g-5" style="justify-content: center">
+                        <h:messages/>
                         <div class="col-md-3">
                             <h:commandButton styleClass="botao" value="Cadastrar"
                                              action="#{cadastroEmpresaController.cadastrar}"/>
