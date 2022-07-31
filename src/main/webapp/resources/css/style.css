@@ -328,6 +328,10 @@ main {
     margin: 0 10px;
 }
 
+.nav-link-pos {
+    color: black;
+}
+
 .cadastro-funcionarios {
     justify-content: center !important;
     align-items: center !important;
